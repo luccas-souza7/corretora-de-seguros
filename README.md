@@ -59,4 +59,4 @@ Gostou do trabalho? Entre em contato para conversarmos sobre o seu projeto.
 - 📱 [+55 (11) 93201-8859](https://wa.me/5511932018859)
 - 📧 [luccasnsouza1@gmail.com](mailto:luccasnsouza1@gmail.com)
 - 💼 [linkedin.com/in/luccas-souza7](https://www.linkedin.com/in/luccas-souza7/)
-- 🐙 [github.com/luccas-souza7](https://github.com/luccas-souza7)
+- 💻 [github.com/luccas-souza7](https://github.com/luccas-souza7)
