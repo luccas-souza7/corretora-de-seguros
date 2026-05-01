@@ -1,4 +1,4 @@
-# LS Corretora de Seguros — Projeto de Portfólio
+# Corretora de Seguros - Projeto de Portfólio
 
 Site institucional fictício desenvolvido como projeto de portfólio para demonstrar habilidades em desenvolvimento front-end.
 
