@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>LS Corretora de Seguros | Proteção com Atendimento Humano</title>
+  <meta name="description" content="LS Corretora de Seguros – Parceira Porto Seguro. Mais de 500 clientes protegidos em São Paulo. Atendimento humano, cotação gratuita.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header-container">
+      <a href="#hero" class="logo" aria-label="LS Corretora de Seguros">
+        <img src="logo-ls.png" alt="LS Corretora de Seguros" class="logo-img">
+      </a>
+      <nav class="nav-desktop">
+        <ul>
+          <li><a href="#diferenciais">Por que a LS</a></li>
+          <li><a href="#seguradoras">Seguradoras</a></li>
+          <li><a href="#solucoes">Soluções</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/5511932018859" target="_blank" class="btn btn-primary btn-header">
+        <i class="fab fa-whatsapp"></i> Fale Conosco
+      </a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#diferenciais">Por que a LS</a></li>
+        <li><a href="#seguradoras">Seguradoras</a></li>
+        <li><a href="#solucoes">Soluções</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="https://wa.me/5511932018859" target="_blank" class="btn btn-primary" style="display:inline-flex;margin-top:1rem;"><i class="fab fa-whatsapp"></i> Fale Conosco</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ① HERO COM VÍDEO -->
+    <section id="hero" class="hero">
+      <video class="hero-video" autoplay muted loop playsinline poster="https://images.pexels.com/photos/7163952/pexels-photo-7163952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+        <source src="https://videos.pexels.com/video-files/7883982/7883982-uhd_2560_1440_25fps.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content animate-on-scroll">
+        <h1 class="hero-title" style="color: #ffffff;">Seguros que protegem o que realmente importa</h1>
+        <p class="hero-description">Atendimento humano do orçamento ao sinistro. Mais de 500 famílias protegidas em São Paulo.</p>
+        <div class="hero-cta-group">
+          <a href="https://wa.me/5511932018859?text=Olá!%20Gostaria%20de%20uma%20cotação%20gratuita." target="_blank" class="btn btn-primary btn-large">
+            <i class="fas fa-shield-alt"></i> Solicitar Cotação Grátis
+          </a>
+          <a href="#diferenciais" class="btn btn-ghost btn-large">
+            Conheça a LS <i class="fas fa-arrow-down"></i>
+          </a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>+500 clientes</span></div>
+          <div class="trust-divider"></div>
+          <div class="trust-item"><i class="fas fa-clock"></i><span>15 anos de experiência</span></div>
+          <div class="trust-divider"></div>
+          <div class="trust-item"><i class="fas fa-headset"></i><span>Atendimento humanizado</span></div>
+        </div>
+      </div>
+      <a href="#seguros" class="hero-scroll-indicator" aria-label="Rolar para baixo">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- ② SOLUÇÕES COMPLETAS (SEGUROS) -->
+    <section id="seguros" class="seguros">
+      <div class="container">
+        <div class="section-header animate-on-scroll visible">
+          <span class="section-tag">Soluções completas</span>
+          <h2>Seguros que protegem o que <span class="highlight">realmente importa</span></h2>
+        </div>
+        <div class="seguros-grid" id="segurosContainer"></div>
+      </div>
+    </section>
+
+    <!-- ③ POR QUE ESCOLHER A LS -->
+    <section id="diferenciais" class="diferenciais">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-tag">Nossos diferenciais</span>
+          <h2>Por que centenas de famílias em São Paulo <span class="highlight">escolhem a LS</span></h2>
+        </div>
+        <div class="diferenciais-grid">
+          <div class="diferencial-card animate-on-scroll">
+            <div class="diferencial-num">01</div>
+            <div class="diferencial-icon"><i class="fas fa-handshake"></i></div>
+            <h3>Atendimento 100% Humano</h3>
+            <p>Nada de robôs. Nossa equipe real te acompanha do primeiro contato ao fechamento da apólice e ainda no sinistro.</p>
+          </div>
+          <div class="diferencial-card animate-on-scroll">
+            <div class="diferencial-num">02</div>
+            <div class="diferencial-icon"><i class="fas fa-search-dollar"></i></div>
+            <h3>Melhor Custo-Benefício</h3>
+            <p>Comparamos diversas seguradoras para você ter a proteção ideal com o menor preço possível. Sem pegadinhas.</p>
+          </div>
+          <div class="diferencial-card animate-on-scroll">
+            <div class="diferencial-num">03</div>
+            <div class="diferencial-icon"><i class="fas fa-bolt"></i></div>
+            <h3>Agilidade no Sinistro</h3>
+            <p>Quando o imprevisto acontece, nossa equipe age rápido. Sinistros resolvidos em até 48h com acompanhamento total.</p>
+          </div>
+          <div class="diferencial-card animate-on-scroll">
+            <div class="diferencial-num">04</div>
+            <div class="diferencial-icon"><i class="fas fa-certificate"></i></div>
+            <h3>15 Anos de Experiência</h3>
+            <p>Mais de uma década cuidando de famílias e empresas em São Paulo. Credibilidade que se constrói com resultado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ④ SEGURADORAS -->
+    <section id="seguradoras" class="seguradoras-section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-tag">Parceiros de confiança</span>
+          <h2>Trabalhamos com quem você já <span class="highlight">conhece e confia</span></h2>
+          <p class="section-subtitle">Acesso às melhores seguradoras do Brasil para garantir a cobertura ideal para você.</p>
+        </div>
+        <div class="splide animate-on-scroll" id="seguradorasSlider" aria-label="Seguradoras parceiras">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide"><div class="seguradora-logo"><img src="images/seguradoras/portoseguro.png" alt="Porto Seguro" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="seguradora-nome" style="display:none;">Porto Seguro</span></div></li>
+              <li class="splide__slide"><div class="seguradora-logo"><img src="images/seguradoras/allianz.png" alt="Allianz" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="seguradora-nome" style="display:none;">Allianz</span></div></li>
+              <li class="splide__slide"><div class="seguradora-logo"><img src="images/seguradoras/zurich.png" alt="Zurich" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="seguradora-nome" style="display:none;">Zurich</span></div></li>
+              <li class="splide__slide"><div class="seguradora-logo"><img src="images/seguradoras/bradescoseguros.png" alt="Bradesco Seguros" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="seguradora-nome" style="display:none;">Bradesco Seguros</span></div></li>
+              <li class="splide__slide"><div class="seguradora-logo"><img src="images/seguradoras/mapfre.png" alt="Mapfre" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="seguradora-nome" style="display:none;">Mapfre</span></div></li>
+              <li class="splide__slide"><div class="seguradora-logo"><img src="images/seguradoras/tokiomarine.png" alt="Tokio Marine" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="seguradora-nome" style="display:none;">Tokio Marine</span></div></li>
+              <li class="splide__slide"><div class="seguradora-logo"><img src="images/seguradoras/azulseguros.png" alt="Azul Seguros" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="seguradora-nome" style="display:none;">Azul Seguros</span></div></li>
+              <li class="splide__slide"><div class="seguradora-logo"><img src="images/seguradoras/ituran.png" alt="Ituran" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="seguradora-nome" style="display:none;">Ituran</span></div></li>
+              <li class="splide__slide"><div class="seguradora-logo"><img src="images/seguradoras/yelum.png" alt="Yelum" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="seguradora-nome" style="display:none;">Yelum</span></div></li>
+              <li class="splide__slide"><div class="seguradora-logo"><img src="images/seguradoras/mitsuisumitomo.png" alt="Mitsui Sumitomo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="seguradora-nome" style="display:none;">Mitsui Sumitomo</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑤ O QUE VOCÊ PRECISA, A GENTE RESOLVE AGORA -->
+    <section id="solucoes" class="solucoes-rapidas">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-tag">Atendimento imediato</span>
+          <h2>O que você precisa, <span class="highlight">a gente resolve agora</span></h2>
+        </div>
+        <div class="solucoes-grid">
+          <a href="https://wa.me/5511932018859?text=Olá!%20Quero%20cotar%20Seguro%20Auto." target="_blank" class="solucao-card animate-on-scroll">
+            <div class="solucao-icon"><i class="fas fa-car"></i></div>
+            <h3>Cotar Seguro Auto</h3>
+            <p>Proteção completa para seu veículo com a melhor cobertura.</p>
+            <span class="solucao-cta">Cotar agora <i class="fas fa-arrow-right"></i></span>
+          </a>
+          <a href="https://wa.me/5511932018859?text=Olá!%20Quero%20cotar%20Seguro%20Residencial." target="_blank" class="solucao-card animate-on-scroll">
+            <div class="solucao-icon"><i class="fas fa-home"></i></div>
+            <h3>Seguro Residencial</h3>
+            <p>Seu lar protegido contra incêndio, roubo e muito mais.</p>
+            <span class="solucao-cta">Cotar agora <i class="fas fa-arrow-right"></i></span>
+          </a>
+          <a href="https://wa.me/5511932018859?text=Olá!%20Preciso%20falar%20com%20um%20corretor." target="_blank" class="solucao-card solucao-destaque animate-on-scroll">
+            <div class="solucao-icon"><i class="fab fa-whatsapp"></i></div>
+            <h3>Falar com Corretor</h3>
+            <p>Tire dúvidas e receba orientação especializada agora mesmo.</p>
+            <span class="solucao-cta">Chamar no WhatsApp <i class="fas fa-arrow-right"></i></span>
+          </a>
+          <a href="https://wa.me/5511932018859?text=Olá!%20Quero%20cotar%20Seguro%20de%20Vida." target="_blank" class="solucao-card animate-on-scroll">
+            <div class="solucao-icon"><i class="fas fa-heart-pulse"></i></div>
+            <h3>Cotar Seguro Vida</h3>
+            <p>Tranquilidade financeira para quem você mais ama.</p>
+            <span class="solucao-cta">Cotar agora <i class="fas fa-arrow-right"></i></span>
+          </a>
+          <a href="https://wa.me/5511932018859?text=Olá!%20Preciso%20abrir%20um%20sinistro." target="_blank" class="solucao-card animate-on-scroll">
+            <div class="solucao-icon"><i class="fas fa-file-shield"></i></div>
+            <h3>Abrir Sinistro</h3>
+            <p>Orientação rápida e acompanhamento completo no processo.</p>
+            <span class="solucao-cta">Iniciar processo <i class="fas fa-arrow-right"></i></span>
+          </a>
+          <a href="https://wa.me/5511932018859?text=Olá!%20Quero%20conhecer%20outras%20soluções." target="_blank" class="solucao-card animate-on-scroll">
+            <div class="solucao-icon"><i class="fas fa-ellipsis"></i></div>
+            <h3>Outras Soluções</h3>
+            <p>Empresarial, frota, consórcio, celular e muito mais.</p>
+            <span class="solucao-cta">Ver tudo <i class="fas fa-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑥ DEPOIMENTOS -->
+    <section id="depoimentos" class="depoimentos">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <div class="google-badge">
+            <svg viewBox="0 0 24 24" width="28" height="28"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            <span>Avaliações no Google</span>
+          </div>
+          <div class="google-stars" style="text-align:center; display:flex; justify-content:center; align-items:center; gap:0.3rem; flex-wrap:wrap; margin: 0 auto;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <strong>5.0</strong> <span>· 50+ avaliações</span>
+          </div>
+          <span class="section-tag">Quem confia na LS recomenda</span>
+          <h2>O que nossos <span class="highlight">clientes dizem</span></h2>
+        </div>
+
+        <div class="splide animate-on-scroll" id="depoimentosSlider" aria-label="Depoimentos de clientes">
+          <div class="splide__track">
+            <ul class="splide__list" id="depoimentosList"></ul>
+          </div>
+        </div>
+
+        <div class="depoimentos-cta animate-on-scroll">
+          <p>Já são <strong>+500 clientes protegidos</strong> e mais de <strong>50 avaliações 5 estrelas</strong> no Google.</p>
+          <a href="https://wa.me/5511932018859" target="_blank" class="btn btn-primary">Quero fazer parte <i class="fas fa-arrow-right"></i></a>
+          <a href="#" target="_blank" class="btn btn-outline-white">Ver no Google <i class="fab fa-google"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑦ MISSÃO, VISÃO E VALORES -->
+    <section id="missao" class="missao-visao-valores">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-tag">Quem somos</span>
+          <h2>Nossa <span class="highlight">essência</span></h2>
+        </div>
+        <div class="mvv-grid">
+          <div class="mvv-card animate-on-scroll">
+            <div class="mvv-icon"><i class="fas fa-bullseye"></i></div>
+            <h3>Missão</h3>
+            <p>Oferecer soluções em seguros com excelência, transparência e atendimento humano, garantindo tranquilidade e segurança para nossos clientes em todas as fases da vida.</p>
+          </div>
+          <div class="mvv-card animate-on-scroll">
+            <div class="mvv-icon"><i class="fas fa-eye"></i></div>
+            <h3>Visão</h3>
+            <p>Ser reconhecida como a corretora mais confiável de São Paulo, referência em atendimento personalizado, inovação e parcerias sólidas com as principais seguradoras do país.</p>
+          </div>
+          <div class="mvv-card animate-on-scroll">
+            <div class="mvv-icon"><i class="fas fa-heart"></i></div>
+            <h3>Valores</h3>
+            <ul class="mvv-list">
+              <li><i class="fas fa-check"></i> Ética e transparência</li>
+              <li><i class="fas fa-check"></i> Compromisso com o cliente</li>
+              <li><i class="fas fa-check"></i> Excelência no atendimento</li>
+              <li><i class="fas fa-check"></i> Inovação constante</li>
+              <li><i class="fas fa-check"></i> Responsabilidade social</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑧ FAQ -->
+    <section id="faq" class="faq">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-tag">Tire suas dúvidas</span>
+          <h2>Perguntas <span class="highlight">Frequentes</span></h2>
+          <p class="section-subtitle">Não encontrou sua resposta? <a href="https://wa.me/5511932018859" target="_blank">Fale conosco no WhatsApp.</a></p>
+        </div>
+        <div class="faq-grid">
+          <div class="faq-item animate-on-scroll">
+            <button class="faq-question">
+              <span>A LS é parceira oficial da Porto Seguro?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Sim! Somos corretora independente com parceria oficial Porto Seguro. Você contrata produtos Porto com o atendimento humano e personalizado da LS. O melhor dos dois mundos.</p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll">
+            <button class="faq-question">
+              <span>Preciso ir ao escritório para contratar?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Não. Todo o processo pode ser feito online, via WhatsApp ou e-mail. Se preferir atendimento presencial, nosso escritório em Vila Guilherme está de portas abertas.</p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll">
+            <button class="faq-question">
+              <span>Como funciona o atendimento em sinistro?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Nossa equipe acompanha todo o processo do início ao fim. Você não fica perdido com a seguradora: orientamos cada etapa, da abertura à resolução. Sinistros resolvidos em média em 48h.</p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll">
+            <button class="faq-question">
+              <span>Como funciona a cotação gratuita?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>É simples: chame no WhatsApp ou preencha o formulário de contato. Nossa equipe responde em minutos com as melhores opções do mercado comparadas para o seu perfil.</p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll">
+            <button class="faq-question">
+              <span>Quais tipos de seguro a LS oferece?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Auto, residencial, vida, saúde, empresarial, frota, celular e consórcio. Trabalhamos com mais de 15 seguradoras parceiras para garantir a melhor cobertura e preço para você.</p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll">
+            <button class="faq-question">
+              <span>Posso contratar plano de saúde pela LS?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Sim! Trabalhamos com diversas operadoras de saúde. Nossa equipe analisa seu perfil e apresenta as melhores opções com a rede credenciada ideal para você e sua família.</p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll">
+            <button class="faq-question">
+              <span>Qual o horário de atendimento?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Segunda a sexta, das 9h às 18h. Mas pode chamar no WhatsApp a qualquer hora, respondemos assim que possível, mesmo fora do horário comercial.</p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll">
+            <button class="faq-question">
+              <span>A LS atende empresas e frotas?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Sim. Temos soluções completas para PJ: seguro empresarial, frota, responsabilidade civil e muito mais. Entre em contato para uma análise personalizada do seu negócio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑨ MAPA + CONTATO -->
+    <section id="contato" class="contato">
+      <div class="container">
+        <div class="contato-grid animate-on-scroll">
+          <div class="contato-info">
+            <span class="section-tag">Fale com a LS</span>
+            <h2>Vamos proteger o que importa <span class="highlight">para você?</span></h2>
+            <p class="contato-desc">Respondemos em minutos. Segunda a sexta, das 9h às 18h.</p>
+            <div class="contato-canais">
+              <a href="https://wa.me/5511932018859" target="_blank" class="canal-item">
+                <i class="fab fa-whatsapp"></i>
+                <div><strong>WhatsApp</strong><span>(11) 93201-8859</span></div>
+              </a>
+              <a href="tel:+5511932018859" class="canal-item">
+                <i class="fas fa-phone-alt"></i>
+                <div><strong>Telefone</strong><span>(11) 93201-8859</span></div>
+              </a>
+              <a href="mailto:luccasnsouza1@gmail.com" class="canal-item">
+                <i class="fas fa-envelope"></i>
+                <div><strong>E-mail</strong><span>luccasnsouza1@gmail.com</span></div>
+              </a>
+            </div>
+            <div class="contato-endereco">
+              <i class="fas fa-map-pin"></i>
+              <span>Vila Guilherme, São Paulo – SP</span>
+            </div>
+            <div class="contato-horario">
+              <i class="fas fa-clock"></i>
+              <span>Segunda a sexta, das 9h às 18h</span>
+            </div>
+          </div>
+          <div class="contato-form-card">
+            <h3>Solicite uma cotação gratuita</h3>
+            <div id="cotacaoForm">
+              <div class="form-group">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" placeholder="Seu nome" required>
+              </div>
+              <div class="form-group">
+                <label for="telefone">WhatsApp / Telefone</label>
+                <input type="tel" id="telefone" placeholder="(11) 99999-9999" required>
+              </div>
+              <div class="form-group">
+                <label for="seguro">Tipo de seguro</label>
+                <select id="seguro">
+                  <option value="auto">Auto</option>
+                  <option value="saude">Saúde</option>
+                  <option value="residencial">Residencial</option>
+                  <option value="vida">Vida</option>
+                  <option value="consorcio">Consórcio</option>
+                  <option value="empresarial">Empresarial</option>
+                  <option value="celular">Celular</option>
+                  <option value="frota">Frota</option>
+                </select>
+              </div>
+              <button type="button" id="btnSubmit" class="btn btn-primary btn-block">
+                Enviar e receber contato <i class="fas fa-paper-plane"></i>
+              </button>
+              <p class="form-disclaimer"><i class="fas fa-lock"></i> Seus dados estão seguros e não serão compartilhados.</p>
+            </div>
+            <div id="formFeedback" class="form-feedback"></div>
+          </div>
+        </div>
+        <div class="mapa-wrapper animate-on-scroll">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.3!2d-46.6241!3d-23.5065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sVila+Guilherme%2C+S%C3%A3o+Paulo!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+            width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Localização LS Corretora de Seguros">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-logo">
+        <img src="logo-ls.png" alt="LS Corretora de Seguros" class="footer-logo-img">
+        <p>Protegendo sonhos com cuidado humano desde 2011.</p>
+        <div class="social-links">
+          <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/in/luccas-souza7/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" target="_blank" aria-label="Google"><i class="fab fa-google"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#diferenciais">Por que a LS</a></li>
+          <li><a href="#seguros">Seguros</a></li>
+          <li><a href="#solucoes">Soluções</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="https://veiculos.fipe.org.br/" target="_blank">Tabela FIPE</a></li>
+          <li><a href="https://www.gov.br/susep/pt-br" target="_blank">SUSEP</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="privacidade.html">Política de Privacidade</a></li>
+        </ul>
+      </div>
+      <div class="footer-selo">
+        <div class="porto-selo">
+          Parceiro Oficial<br><span>Porto Seguro</span>
+        </div>
+        <p class="copyright">© <span id="currentYear"></span> LS Corretora de Seguros.<br>Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+  <a href="https://wa.me/5511932018859?text=Olá!%20Preciso%20de%20ajuda%20com%20seguros." target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
+    <div class="whatsapp-bubble">
+      <span class="wpp-text-top">Precisa de Ajuda?</span>
+      <span class="wpp-text-bot">Fale Conosco</span>
+    </div>
+    <div class="whatsapp-icon"><i class="fab fa-whatsapp"></i></div>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

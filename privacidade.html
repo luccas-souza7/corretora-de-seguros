@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidade - LS Corretora de Seguros</title>
+  <meta name="description" content="Política de Privacidade da LS Corretora de Seguros. Saiba como tratamos seus dados em conformidade com a LGPD.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── PAGE HERO ── */
+    .page-hero {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #060e1c;
+    }
+    .page-hero .hero-video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .page-hero .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(6,14,28,0.80) 0%, rgba(10,24,52,0.65) 100%);
+      z-index: 1;
+    }
+    .page-hero .container {
+      position: relative;
+      z-index: 2;
+      padding-top: 5rem;
+      padding-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+    }
+    .page-hero .hero-title { text-align: center; }
+    .page-hero .hero-subtitle {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.1rem;
+      margin-top: 0.75rem;
+      max-width: 520px;
+      text-align: center;
+    }
+
+    /* ── ANIMATE ── */
+    .anim { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .anim.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    /* ── PAGE CONTENT ── */
+    .page-content { padding: 3.5rem 0 5rem; }
+    .page-content .container { max-width: 820px; }
+    .page-content p {
+      font-size: 1.02rem; line-height: 1.8;
+      color: #4a5568; margin-bottom: 1.1rem;
+    }
+    .page-content h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.35rem; font-weight: 700;
+      color: #0f2042;
+      margin: 2.5rem 0 0.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e8f0fb;
+    }
+    .page-content ul { margin: 0.5rem 0 1.2rem 1.5rem; }
+    .page-content ul li {
+      font-size: 1rem; line-height: 1.75;
+      color: #4a5568; margin-bottom: 0.4rem;
+    }
+    .page-content a { color: var(--primary, #1E4E8C); font-weight: 600; }
+    .privacy-intro-box {
+      background: #f0f6ff;
+      border: 1px solid #d0e3fa;
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .privacy-intro-box i { color: #1E4E8C; font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .privacy-intro-box p { margin: 0; font-size: 0.98rem; color: #374151; }
+
+    /* ── SEGURADORAS SLIDER ── */
+    .seguradoras-section { background: #f8faff; padding: 4rem 0; }
+    .section-header-simple { text-align: center; margin-bottom: 2rem; }
+    .section-header-simple .section-tag {
+      display: inline-block; background: #e8f0fb; color: #1E4E8C;
+      border-radius: 50px; padding: 0.3rem 1rem;
+      font-size: 0.82rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;
+    }
+    .section-header-simple h2 {
+      font-family: 'Sora', sans-serif; font-size: 1.75rem; font-weight: 700;
+      color: #0f2042; line-height: 1.25;
+    }
+    .section-header-simple h2 .highlight { color: #1E4E8C; }
+    .section-subtitle { color: #6b7280; font-size: 1rem; margin-top: 0.5rem; }
+    .seguradora-logo {
+      background: #fff;
+      border: 1px solid #e8f0fb;
+      border-radius: 14px;
+      padding: 1.5rem 2rem;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100px;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .seguradora-logo:hover { box-shadow: 0 6px 20px rgba(30,78,140,0.1); transform: translateY(-3px); }
+    .seguradora-logo img {
+      max-height: 50px; width: auto; max-width: 160px;
+      object-fit: contain;
+      filter: grayscale(60%); opacity: 0.8;
+      transition: filter 0.3s, opacity 0.3s;
+    }
+    .seguradora-logo:hover img { filter: grayscale(0%); opacity: 1; }
+    .seguradora-nome {
+      font-family: 'Sora', sans-serif; font-size: 1rem; font-weight: 600;
+      color: #1E4E8C; text-align: center;
+    }
+
+    /* ── FAQ ANIMADO ── */
+    .faq-section { padding: 4rem 0; background: #fff; }
+    .faq-list { max-width: 760px; margin: 2.5rem auto 0; display: flex; flex-direction: column; gap: 0.75rem; }
+    .faq-item-priv {
+      border: 1px solid #e8f0fb; border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.25s, border-color 0.25s;
+    }
+    .faq-item-priv.active { border-color: #1E4E8C; box-shadow: 0 4px 16px rgba(30,78,140,0.1); }
+    .faq-question-priv {
+      width: 100%; background: none; border: none;
+      padding: 1.2rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      cursor: pointer; text-align: left;
+      font-family: 'Sora', sans-serif; font-size: 0.98rem; font-weight: 600;
+      color: #0f2042;
+      transition: background 0.2s;
+    }
+    .faq-question-priv:hover { background: #f8faff; }
+    .faq-question-priv .faq-icon {
+      color: #1E4E8C; font-size: 0.8rem; flex-shrink: 0;
+      transition: transform 0.35s ease;
+    }
+    .faq-item-priv.active .faq-question-priv .faq-icon { transform: rotate(180deg); }
+    .faq-answer-priv {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 1.5rem;
+    }
+    .faq-item-priv.active .faq-answer-priv {
+      max-height: 400px;
+      padding: 0 1.5rem 1.25rem;
+    }
+    .faq-answer-priv p {
+      font-size: 0.93rem; color: #4a5568; line-height: 1.75; margin: 0;
+    }
+
+    /* ── HEADER ── */
+    .header-container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-desktop { flex: 1; display: flex; justify-content: center; }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="LS Corretora de Seguros">
+        <img src="logo-ls.png" alt="LS Corretora de Seguros" class="logo-img">
+      </a>
+      <nav class="nav-desktop">
+        <ul>
+          <li><a href="index.html#diferenciais">Por que a LS</a></li>
+          <li><a href="index.html#seguradoras">Seguradoras</a></li>
+          <li><a href="index.html#solucoes">Soluções</a></li>
+          <li><a href="index.html#depoimentos">Depoimentos</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/5511932018859" target="_blank" class="btn btn-primary btn-header">
+        <i class="fab fa-whatsapp"></i> Fale Conosco
+      </a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="index.html#diferenciais">Por que a LS</a></li>
+        <li><a href="index.html#seguradoras">Seguradoras</a></li>
+        <li><a href="index.html#solucoes">Soluções</a></li>
+        <li><a href="index.html#depoimentos">Depoimentos</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li>
+          <a href="https://wa.me/5511932018859" target="_blank" class="btn btn-primary" style="display:inline-flex; margin-top:1rem;">
+            <i class="fab fa-whatsapp"></i> Fale Conosco
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+    <!-- HERO -->
+    <section class="page-hero" style="
+      background: url('https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat;
+    ">
+      <div class="hero-overlay"></div>
+     <div class="container animate-on-scroll visible">
+        <h1 class="hero-title" style="color: white;">Política de Privacidade</h1>
+        <p class="hero-subtitle">
+          Seus dados seguros, tratados com responsabilidade e em total conformidade com a LGPD.
+        </p>
+      </div>
+    </section>
+
+  <!-- CONTEÚDO DA POLÍTICA -->
+  <main class="page-content">
+    <div class="container">
+
+      <div class="privacy-intro-box anim">
+        <i class="fas fa-shield-alt"></i>
+        <p>A LS Corretora de Seguros valoriza a privacidade e a segurança dos dados pessoais de seus clientes, parceiros e visitantes. Esta Política descreve como coletamos, utilizamos, armazenamos e protegemos suas informações, em conformidade com a Lei Geral de Proteção de Dados (LGPD, Lei 13.709/2018).</p>
+      </div>
+
+      <h2 class="anim">1. Coleta de Informações</h2>
+      <p class="anim">Coletamos informações pessoais fornecidas voluntariamente por você ao solicitar uma cotação, entrar em contato conosco ou preencher formulários em nosso site. Os dados coletados podem incluir: nome completo, telefone, e-mail, CPF, endereço, dados do veículo ou imóvel, entre outros necessários para a elaboração de propostas de seguros.</p>
+      <p class="anim">Também podemos coletar automaticamente informações de navegação, como endereço IP, tipo de navegador, páginas acessadas e tempo de visita, por meio de cookies e tecnologias similares, para melhorar sua experiência em nosso site.</p>
+
+      <h2 class="anim">2. Uso das Informações</h2>
+      <p class="anim">Os dados coletados são utilizados exclusivamente para:</p>
+      <ul class="anim">
+        <li>Elaboração de cotações e propostas de seguros;</li>
+        <li>Comunicação sobre produtos, serviços e novidades da LS;</li>
+        <li>Atendimento ao cliente e suporte em sinistros;</li>
+        <li>Cumprimento de obrigações legais e regulatórias;</li>
+        <li>Melhoria contínua de nossos serviços e do website.</li>
+      </ul>
+      <p class="anim">Você pode optar por não receber comunicações de marketing a qualquer momento, utilizando o link de descadastro presente em nossos e-mails ou entrando em contato conosco diretamente.</p>
+
+      <h2 class="anim">3. Compartilhamento de Dados</h2>
+      <p class="anim">A LS não vende, aluga ou compartilha seus dados pessoais com terceiros para fins comerciais sem sua autorização expressa. O compartilhamento ocorre apenas nas seguintes situações:</p>
+      <ul class="anim">
+        <li>Com as seguradoras parceiras, exclusivamente para a efetivação da contratação do seguro;</li>
+        <li>Com prestadores de serviço essenciais para a operação, sempre sob cláusulas de confidencialidade;</li>
+        <li>Por exigência legal, ordem judicial ou de autoridades competentes.</li>
+      </ul>
+
+      <h2 class="anim">4. Segurança e Armazenamento</h2>
+      <p class="anim">Adotamos medidas técnicas e organizacionais robustas para proteger seus dados contra acessos não autorizados, perda, alteração ou destruição. Utilizamos criptografia, firewalls e controles de acesso rigorosos. Os dados são armazenados em servidores seguros, sempre em conformidade com a legislação aplicável.</p>
+
+      <h2 class="anim">5. Seus Direitos (LGPD)</h2>
+      <p class="anim">Você tem direito a:</p>
+      <ul class="anim">
+        <li>Confirmar a existência de tratamento de seus dados;</li>
+        <li>Acessar seus dados pessoais;</li>
+        <li>Corrigir dados incompletos, inexatos ou desatualizados;</li>
+        <li>Solicitar a anonimização, bloqueio ou eliminação de dados desnecessários;</li>
+        <li>Revogar o consentimento a qualquer momento.</li>
+      </ul>
+      <p class="anim">Para exercer seus direitos, entre em contato pelo e-mail <a href="mailto:luccasnsouza1@gmail.com">luccasnsouza1@gmail.com</a>. Responderemos em até 15 dias úteis.</p>
+
+      <h2 class="anim">6. Cookies</h2>
+      <p class="anim">Utilizamos cookies para melhorar a funcionalidade do site e analisar o tráfego. Você pode configurar seu navegador para recusar cookies, mas isso pode afetar algumas funcionalidades do site.</p>
+
+      <h2 class="anim">7. Alterações nesta Política</h2>
+      <p class="anim">Esta política pode ser atualizada periodicamente. Recomendamos a consulta regular a esta página. Última atualização: <span id="anoAtual"></span>.</p>
+
+      <h2 class="anim">8. Contato</h2>
+      <p class="anim">Em caso de dúvidas sobre privacidade ou para exercer seus direitos, fale com nosso Encarregado de Dados:<br>
+        <a href="mailto:luccasnsouza1@gmail.com">luccasnsouza1@gmail.com</a> &middot;
+        <a href="tel:+5511932018859">(11) 93201-8859</a>
+      </p>
+
+    </div>
+  </main>
+
+  <!-- SEGURADORAS PARCEIRAS -->
+  <section class="seguradoras-section">
+    <div class="container">
+      <div class="section-header-simple anim">
+        <span class="section-tag">Parceiras</span>
+        <h2>Nossas <span class="highlight">Seguradoras</span></h2>
+        <p class="section-subtitle">Acesso às melhores seguradoras do Brasil para garantir a cobertura ideal para você.</p>
+      </div>
+      <div class="splide anim" id="seguradorasSlider" aria-label="Seguradoras parceiras">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <div class="seguradora-logo">
+                <img src="images/seguradoras/portoseguro.png" alt="Porto Seguro"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="seguradora-nome" style="display:none;">Porto Seguro</span>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="seguradora-logo">
+                <img src="images/seguradoras/allianz.png" alt="Allianz"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="seguradora-nome" style="display:none;">Allianz</span>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="seguradora-logo">
+                <img src="images/seguradoras/zurich.png" alt="Zurich"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="seguradora-nome" style="display:none;">Zurich</span>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="seguradora-logo">
+                <img src="images/seguradoras/bradescoseguros.png" alt="Bradesco Seguros"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="seguradora-nome" style="display:none;">Bradesco Seguros</span>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="seguradora-logo">
+                <img src="images/seguradoras/mapfre.png" alt="Mapfre"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="seguradora-nome" style="display:none;">Mapfre</span>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="seguradora-logo">
+                <img src="images/seguradoras/tokiomarine.png" alt="Tokio Marine"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="seguradora-nome" style="display:none;">Tokio Marine</span>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="seguradora-logo">
+                <img src="images/seguradoras/azulseguros.png" alt="Azul Seguros"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="seguradora-nome" style="display:none;">Azul Seguros</span>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="seguradora-logo">
+                <img src="images/seguradoras/ituran.png" alt="Ituran"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="seguradora-nome" style="display:none;">Ituran</span>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="seguradora-logo">
+                <img src="images/seguradoras/yelum.png" alt="Yelum"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="seguradora-nome" style="display:none;">Yelum</span>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="seguradora-logo">
+                <img src="images/seguradoras/mitsuisumitomo.png" alt="Mitsui Sumitomo"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="seguradora-nome" style="display:none;">Mitsui Sumitomo</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ ANIMADO -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header-simple anim">
+        <span class="section-tag">Dúvidas</span>
+        <h2>Perguntas <span class="highlight">Frequentes</span></h2>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item-priv anim delay-1">
+          <button class="faq-question-priv" aria-expanded="false">
+            Como a LS trata meus dados pessoais?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer-priv" role="region">
+            <p>Seus dados são coletados apenas com sua autorização e utilizados exclusivamente para elaborar cotações, prestar atendimento e cumprir obrigações legais. Nunca vendemos ou compartilhamos seus dados para fins comerciais sem seu consentimento.</p>
+          </div>
+        </div>
+
+        <div class="faq-item-priv anim delay-2">
+          <button class="faq-question-priv" aria-expanded="false">
+            Posso solicitar a exclusão dos meus dados?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer-priv" role="region">
+            <p>Sim. Pela LGPD, você tem direito a solicitar anonimização, bloqueio ou exclusão dos seus dados a qualquer momento. Basta entrar em contato pelo e-mail <strong>luccasnsouza1@gmail.com</strong> e responderemos em até 15 dias úteis.</p>
+          </div>
+        </div>
+
+        <div class="faq-item-priv anim delay-3">
+          <button class="faq-question-priv" aria-expanded="false">
+            Os meus dados são compartilhados com as seguradoras?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer-priv" role="region">
+            <p>Apenas quando necessário para efetivar a contratação do seguro que você solicitou. Os dados compartilhados são os mínimos necessários, e as seguradoras parceiras têm obrigação contratual de confidencialidade.</p>
+          </div>
+        </div>
+
+        <div class="faq-item-priv anim">
+          <button class="faq-question-priv" aria-expanded="false">
+            Como posso revogar meu consentimento de comunicações de marketing?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer-priv" role="region">
+            <p>Você pode clicar no link de descadastro presente em qualquer e-mail que enviamos, ou nos contatar diretamente pelo WhatsApp ou e-mail. Processsamos a solicitação imediatamente.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-logo">
+        <img src="logo-ls.png" alt="LS Corretora de Seguros" class="footer-logo-img">
+        <p>Protegendo sonhos com cuidado humano desde 2011.</p>
+        <div class="social-links">
+          <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/in/luccas-souza7/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" target="_blank" aria-label="Google"><i class="fab fa-google"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html#diferenciais">Por que a LS</a></li>
+          <li><a href="index.html#seguros">Seguros</a></li>
+          <li><a href="index.html#solucoes">Soluções</a></li>
+          <li><a href="index.html#depoimentos">Depoimentos</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="https://veiculos.fipe.org.br/" target="_blank">Tabela FIPE</a></li>
+          <li><a href="https://www.gov.br/susep/pt-br" target="_blank">SUSEP</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="privacidade.html">Política de Privacidade</a></li>
+        </ul>
+      </div>
+      <div class="footer-selo">
+        <div class="porto-selo">Parceiro Oficial<br><span>Porto Seguro</span></div>
+        <p class="copyright">© <span id="currentYear"></span> LS Corretora de Seguros.<br>Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5511932018859?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20seguros." target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
+    <div class="whatsapp-bubble">
+      <span class="wpp-text-top">Precisa de Ajuda?</span>
+      <span class="wpp-text-bot">Fale Conosco</span>
+    </div>
+    <div class="whatsapp-icon"><i class="fab fa-whatsapp"></i></div>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script>
+    const year = new Date().getFullYear();
+    document.getElementById('currentYear').textContent = year;
+    document.getElementById('anoAtual').textContent = year;
+
+    // Mobile menu
+    const toggle = document.getElementById('mobileMenuToggle');
+    const menu = document.getElementById('mobileMenu');
+    if (toggle) toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      toggle.innerHTML = menu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+
+    // Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => { if (header) header.classList.toggle('scrolled', window.scrollY > 20); });
+
+    // Animate on scroll
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.anim, .animate-on-scroll').forEach(el => obs.observe(el));
+
+    // Splide slider
+    if (document.getElementById('seguradorasSlider')) {
+      new Splide('#seguradorasSlider', {
+        type: 'loop',
+        perPage: 4,
+        perMove: 1,
+        gap: '1.5rem',
+        autoplay: true,
+        interval: 2800,
+        pauseOnHover: true,
+        arrows: false,
+        pagination: false,
+        breakpoints: {
+          768: { perPage: 2 },
+          480: { perPage: 1 }
+        }
+      }).mount();
+    }
+
+    // FAQ animado com max-height transition
+    document.querySelectorAll('.faq-question-priv').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const item = this.closest('.faq-item-priv');
+        const isActive = item.classList.contains('active');
+
+        // Fecha todos
+        document.querySelectorAll('.faq-item-priv').forEach(i => {
+          i.classList.remove('active');
+          i.querySelector('.faq-question-priv').setAttribute('aria-expanded', 'false');
+        });
+
+        // Abre o clicado se estava fechado
+        if (!isActive) {
+          item.classList.add('active');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

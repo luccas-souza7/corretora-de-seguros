@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nós - LS Corretora de Seguros</title>
+  <meta name="description" content="Conheça a história, missão e valores da LS Corretora de Seguros. Mais de 15 anos protegendo famílias em São Paulo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── PAGE HERO ── */
+    .page-hero {
+      position: relative;
+      min-height: 460px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #0a1628;
+    }
+    .page-hero .hero-video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .page-hero .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,22,40,0.75) 0%, rgba(10,22,40,0.55) 100%);
+      z-index: 1;
+    }
+    .page-hero .container {
+      position: relative;
+      z-index: 2;
+      padding-top: 5rem;
+      padding-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+    }
+    .page-hero .hero-title { text-align: center; }
+    .page-hero .hero-subtitle {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.15rem;
+      margin-top: 0.75rem;
+      max-width: 560px;
+      text-align: center;
+    }
+
+    /* ── ANIMATE ON SCROLL (local) ── */
+    .anim { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .anim.visible { opacity: 1; transform: translateY(0); }
+    .anim-left { opacity: 0; transform: translateX(-32px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .anim-left.visible { opacity: 1; transform: translateX(0); }
+    .anim-right { opacity: 0; transform: translateX(32px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .anim-right.visible { opacity: 1; transform: translateX(0); }
+    .anim-scale { opacity: 0; transform: scale(0.92); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .anim-scale.visible { opacity: 1; transform: scale(1); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+
+    /* ── SOBRE INTRO ── */
+    .sobre-intro { padding: 4.5rem 0 2rem; }
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    @media (max-width: 768px) { .sobre-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .sobre-text h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: 2rem; font-weight: 700;
+      color: var(--text-dark, #0f2042);
+      margin-bottom: 1.2rem; line-height: 1.25;
+    }
+    .sobre-text h2 .highlight { color: var(--primary, #1E4E8C); }
+    .sobre-text p {
+      font-size: 1.05rem; line-height: 1.8;
+      color: var(--text-body, #4a5568); margin-bottom: 1rem;
+    }
+    .sobre-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+    }
+    .stat-box {
+      background: #f0f6ff; border-radius: 14px;
+      padding: 1.4rem 1rem; text-align: center;
+      border: 1px solid #d0e3fa;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .stat-box:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(30,78,140,0.12); }
+    .stat-box strong {
+      display: block; font-size: 2rem; font-weight: 800;
+      color: var(--primary, #1E4E8C); font-family: 'Sora', sans-serif;
+    }
+    .stat-box span { font-size: 0.85rem; color: #6b7280; }
+
+    /* ── MVV ── */
+    .sobre-mvv { background: #f8faff; padding: 4.5rem 0; }
+    .mvv-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 2.5rem;
+    }
+    @media (max-width: 768px) { .mvv-cards { grid-template-columns: 1fr; } }
+    .mvv-item {
+      background: #fff; border-radius: 16px; padding: 2rem 1.5rem;
+      border: 1px solid #e8f0fb;
+      box-shadow: 0 2px 12px rgba(30,78,140,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .mvv-item:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(30,78,140,0.12); }
+    .mvv-item .icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, #1E4E8C, #2d6fd6);
+      border-radius: 12px; display: flex; align-items: center;
+      justify-content: center; color: #fff; font-size: 1.3rem;
+      margin-bottom: 1.2rem;
+    }
+    .mvv-item h3 {
+      font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 700;
+      color: #0f2042; margin-bottom: 0.8rem;
+    }
+    .mvv-item p, .mvv-item li { font-size: 0.95rem; color: #4a5568; line-height: 1.7; }
+    .mvv-item ul { list-style: none; padding: 0; }
+    .mvv-item ul li { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .mvv-item ul li i { color: #1E4E8C; margin-top: 4px; font-size: 0.75rem; flex-shrink: 0; }
+
+    /* ── TIMELINE / HISTÓRIA ── */
+    .sobre-historia { padding: 4.5rem 0; background: #fff; }
+    .timeline { position: relative; max-width: 680px; margin: 3rem auto 0; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: linear-gradient(to bottom, #1E4E8C, #d0e3fa);
+      border-radius: 3px;
+    }
+    .timeline-item {
+      position: relative; padding: 0 0 2.5rem 2rem;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      position: absolute; left: -0.6rem; top: 0.3rem;
+      width: 18px; height: 18px;
+      background: #1E4E8C; border-radius: 50%;
+      border: 3px solid #e8f0fb;
+      box-shadow: 0 0 0 3px rgba(30,78,140,0.15);
+    }
+    .timeline-year {
+      font-family: 'Sora', sans-serif; font-size: 0.8rem;
+      font-weight: 700; color: #1E4E8C;
+      text-transform: uppercase; letter-spacing: 0.07em;
+      margin-bottom: 0.3rem;
+    }
+    .timeline-item h3 {
+      font-family: 'Sora', sans-serif; font-size: 1.05rem; font-weight: 700;
+      color: #0f2042; margin-bottom: 0.4rem;
+    }
+    .timeline-item p { font-size: 0.95rem; color: #4a5568; line-height: 1.7; margin: 0; }
+
+    /* ── EQUIPE / DIFERENCIAIS ── */
+    .sobre-equipe { padding: 4.5rem 0; background: #f8faff; }
+    .equipe-content { max-width: 760px; margin: 2rem auto 0; text-align: center; }
+    .equipe-content p { font-size: 1.05rem; color: #4a5568; line-height: 1.75; margin-bottom: 1rem; }
+    .equipe-diferenciais {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1rem; margin-top: 2rem; text-align: left;
+    }
+    @media (max-width: 600px) { .equipe-diferenciais { grid-template-columns: 1fr; } }
+    .dif-pill {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: #fff; border-radius: 10px; padding: 1rem 1.1rem;
+      border: 1px solid #d0e3fa;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .dif-pill:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(30,78,140,0.1); }
+    .dif-pill i { color: #1E4E8C; font-size: 1.1rem; flex-shrink: 0; }
+    .dif-pill span { font-size: 0.92rem; color: #374151; font-weight: 500; }
+
+    /* ── SECTION HEADER ── */
+    .section-header-simple { text-align: center; margin-bottom: 0.5rem; }
+    .section-header-simple .section-tag {
+      display: inline-block; background: #e8f0fb; color: #1E4E8C;
+      border-radius: 50px; padding: 0.3rem 1rem;
+      font-size: 0.82rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;
+    }
+    .section-header-simple h2 {
+      font-family: 'Sora', sans-serif; font-size: 1.9rem; font-weight: 700;
+      color: #0f2042; line-height: 1.25;
+    }
+    .section-header-simple h2 .highlight { color: #1E4E8C; }
+
+    /* ── CTA FINAL ── */
+    .sobre-cta {
+      background: linear-gradient(135deg, #1E4E8C 0%, #16375e 100%);
+      padding: 4.5rem 0; text-align: center;
+    }
+    .sobre-cta h2 {
+      font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 700;
+      color: #fff; margin-bottom: 1rem;
+    }
+    .sobre-cta p { color: rgba(255,255,255,0.85); font-size: 1.05rem; margin-bottom: 2rem; }
+    .sobre-cta .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── HEADER CENTRALIZADO ── */
+    .header-container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-desktop { flex: 1; display: flex; justify-content: center; }
+
+    /* ── COUNTER ANIMATION ── */
+    @keyframes countUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .stat-box strong { animation: none; }
+    .stat-box.visible strong { animation: countUp 0.5s ease forwards; }
+
+    /* ── PULSE ICON ── */
+    @keyframes pulse-icon {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(30,78,140,0.3); }
+      50% { box-shadow: 0 0 0 8px rgba(30,78,140,0); }
+    }
+    .mvv-item:hover .icon { animation: pulse-icon 1s ease; }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="LS Corretora de Seguros">
+        <img src="logo-ls.png" alt="LS Corretora de Seguros" class="logo-img">
+      </a>
+      <nav class="nav-desktop">
+        <ul>
+          <li><a href="index.html#diferenciais">Por que a LS</a></li>
+          <li><a href="index.html#seguradoras">Seguradoras</a></li>
+          <li><a href="index.html#solucoes">Soluções</a></li>
+          <li><a href="index.html#depoimentos">Depoimentos</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/5511932018859" target="_blank" class="btn btn-primary btn-header">
+        <i class="fab fa-whatsapp"></i> Fale Conosco
+      </a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="index.html#diferenciais">Por que a LS</a></li>
+        <li><a href="index.html#seguradoras">Seguradoras</a></li>
+        <li><a href="index.html#solucoes">Soluções</a></li>
+        <li><a href="index.html#depoimentos">Depoimentos</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li>
+          <a href="https://wa.me/5511932018859" target="_blank" class="btn btn-primary" style="display:inline-flex; margin-top:1rem;">
+            <i class="fab fa-whatsapp"></i> Fale Conosco
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+    <!-- HERO -->
+    <section class="page-hero" style="
+      background: url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat;
+    ">
+      <div class="hero-overlay"></div>
+      <div class="container animate-on-scroll visible">
+       <h1 class="hero-title" style="color: white;">Sobre a <span class="highlight-blue">LS Corretora de Seguros</span></h1>
+        <p class="hero-subtitle">
+         15 anos protegendo famílias e empresas em São Paulo com atendimento humano e soluções personalizadas.
+        </p>
+      </div>
+    </section>
+
+  <main>
+
+    <!-- INTRO -->
+    <section class="sobre-intro">
+      <div class="container">
+        <div class="sobre-grid">
+          <div class="sobre-text anim-left">
+            <h2>Fundados em 2011 com um <span class="highlight">propósito claro</span></h2>
+            <p>A LS nasceu com a missão de transformar a experiência de contratar seguros. Acreditamos que proteção vai além de uma apólice: é relacionamento, confiança e cuidado genuíno com cada cliente.</p>
+            <p>Com escritório em Vila Guilherme, São Paulo, atendemos clientes de toda a região metropolitana e também de forma 100% online para todo o Brasil.</p>
+            <p>Nossa trajetória é marcada por transparência, dedicação e pela busca constante das melhores soluções do mercado para cada perfil de cliente.</p>
+          </div>
+          <div class="sobre-stats">
+            <div class="stat-box anim delay-1">
+              <strong>15</strong>
+              <span>anos de experiência</span>
+            </div>
+            <div class="stat-box anim delay-2">
+              <strong>500+</strong>
+              <span>clientes protegidos</span>
+            </div>
+            <div class="stat-box anim delay-3">
+              <strong>10+</strong>
+              <span>seguradoras parceiras</span>
+            </div>
+            <div class="stat-box anim delay-4">
+              <strong>5.0 &#9733;</strong>
+              <span>avaliação no Google</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTÓRIA / TIMELINE -->
+    <section class="sobre-historia">
+      <div class="container">
+        <div class="section-header-simple anim">
+          <span class="section-tag">Nossa trajetória</span>
+          <h2>Uma história de <span class="highlight">confiança</span></h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item anim delay-1">
+            <div class="timeline-dot"></div>
+            <p class="timeline-year">2011</p>
+            <h3>Fundação da LS Corretora</h3>
+            <p>Nascemos em Vila Guilherme com o compromisso de oferecer seguros com atendimento humano e personalizado.</p>
+          </div>
+          <div class="timeline-item anim delay-2">
+            <div class="timeline-dot"></div>
+            <p class="timeline-year">2014</p>
+            <h3>100 famílias protegidas</h3>
+            <p>Atingimos a marca de 100 clientes e ampliamos nossa carteira de seguradoras parceiras.</p>
+          </div>
+          <div class="timeline-item anim delay-3">
+            <div class="timeline-dot"></div>
+            <p class="timeline-year">2018</p>
+            <h3>Expansão digital</h3>
+            <p>Passamos a atender 100% online clientes de todo o Brasil, mantendo o mesmo cuidado e proximidade.</p>
+          </div>
+          <div class="timeline-item anim delay-4">
+            <div class="timeline-dot"></div>
+            <p class="timeline-year">2024</p>
+            <h3>500+ clientes e 5 estrelas</h3>
+            <p>Mais de 500 famílias protegidas e avaliação máxima no Google. Nossa maior conquista é a confiança dos clientes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MVV -->
+    <section class="sobre-mvv">
+      <div class="container">
+        <div class="section-header-simple anim">
+          <span class="section-tag">Nossa essência</span>
+          <h2>Missão, Visão e <span class="highlight">Valores</span></h2>
+        </div>
+        <div class="mvv-cards">
+          <div class="mvv-item anim delay-1">
+            <div class="icon"><i class="fas fa-bullseye"></i></div>
+            <h3>Missão</h3>
+            <p>Oferecer soluções em seguros com excelência, transparência e atendimento humano, garantindo tranquilidade e segurança para nossos clientes em todas as fases da vida.</p>
+          </div>
+          <div class="mvv-item anim delay-2">
+            <div class="icon"><i class="fas fa-eye"></i></div>
+            <h3>Visão</h3>
+            <p>Ser reconhecida como a corretora mais confiável de São Paulo, referência em atendimento personalizado, inovação e parcerias sólidas com as principais seguradoras do país.</p>
+          </div>
+          <div class="mvv-item anim delay-3">
+            <div class="icon"><i class="fas fa-heart"></i></div>
+            <h3>Valores</h3>
+            <ul>
+              <li><i class="fas fa-check"></i> Ética e transparência</li>
+              <li><i class="fas fa-check"></i> Compromisso com o cliente</li>
+              <li><i class="fas fa-check"></i> Excelência no atendimento</li>
+              <li><i class="fas fa-check"></i> Inovação constante</li>
+              <li><i class="fas fa-check"></i> Responsabilidade social</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="sobre-equipe">
+      <div class="container">
+        <div class="section-header-simple anim">
+          <span class="section-tag">Por que nos escolher</span>
+          <h2>Nossa <span class="highlight">equipe e diferenciais</span></h2>
+        </div>
+        <div class="equipe-content">
+          <p class="anim">Não somos apenas intermediários de seguros. Atuamos como consultores, analisando seu perfil e necessidades para recomendar as coberturas mais adequadas. Trabalhamos com dezenas de seguradoras renomadas para garantir a melhor cobertura pelo melhor preço.</p>
+          <p class="anim">Além disso, oferecemos acompanhamento completo em sinistros, orientando você em cada passo até a resolução final. Você nunca fala com robôs: temos uma equipe real, pronta para ajudar.</p>
+          <div class="equipe-diferenciais">
+            <div class="dif-pill anim delay-1"><i class="fas fa-users"></i><span>Equipe especializada em seguros</span></div>
+            <div class="dif-pill anim delay-2"><i class="fas fa-handshake"></i><span>Atendimento 100% humano, sem robôs</span></div>
+            <div class="dif-pill anim delay-3"><i class="fas fa-bolt"></i><span>Sinistros acompanhados do início ao fim</span></div>
+            <div class="dif-pill anim delay-4"><i class="fas fa-search-dollar"></i><span>Comparamos as melhores cotações para você</span></div>
+            <div class="dif-pill anim delay-5"><i class="fas fa-certificate"></i><span>15 anos de credibilidade no mercado</span></div>
+            <div class="dif-pill anim"><i class="fas fa-map-marker-alt"></i><span>Atendimento presencial em Vila Guilherme, SP</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="sobre-cta">
+      <div class="container">
+        <h2 class="anim">Vamos proteger o que é importante para você?</h2>
+        <p class="anim">Venha conversar com nossa equipe. Cotação gratuita, sem compromisso.</p>
+        <div class="btn-group anim">
+          <a href="https://wa.me/5511932018859?text=Ol%C3%A1!%20Gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20gratuita." target="_blank" class="btn btn-primary btn-large">
+            <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+          </a>
+          <a href="index.html#contato" class="btn btn-ghost btn-large">
+            Solicitar cotação <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-logo">
+        <img src="logo-ls.png" alt="LS Corretora de Seguros" class="footer-logo-img">
+        <p>Protegendo sonhos com cuidado humano desde 2011.</p>
+        <div class="social-links">
+          <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/in/luccas-souza7/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" target="_blank" aria-label="Google"><i class="fab fa-google"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html#diferenciais">Por que a LS</a></li>
+          <li><a href="index.html#seguros">Seguros</a></li>
+          <li><a href="index.html#solucoes">Soluções</a></li>
+          <li><a href="index.html#depoimentos">Depoimentos</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="https://veiculos.fipe.org.br/" target="_blank">Tabela FIPE</a></li>
+          <li><a href="https://www.gov.br/susep/pt-br" target="_blank">SUSEP</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="privacidade.html">Política de Privacidade</a></li>
+        </ul>
+      </div>
+      <div class="footer-selo">
+        <div class="porto-selo">Parceiro Oficial<br><span>Porto Seguro</span></div>
+        <p class="copyright">© <span id="currentYear"></span> LS Corretora de Seguros.<br>Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5511932018859?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20seguros." target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
+    <div class="whatsapp-bubble">
+      <span class="wpp-text-top">Precisa de Ajuda?</span>
+      <span class="wpp-text-bot">Fale Conosco</span>
+    </div>
+    <div class="whatsapp-icon"><i class="fab fa-whatsapp"></i></div>
+  </a>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const toggle = document.getElementById('mobileMenuToggle');
+    const menu = document.getElementById('mobileMenu');
+    if (toggle) toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      toggle.innerHTML = menu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+
+    // Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => { if (header) header.classList.toggle('scrolled', window.scrollY > 20); });
+
+    // Animate on scroll — classe .anim, .anim-left, .anim-right, .anim-scale
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.anim, .anim-left, .anim-right, .anim-scale, .animate-on-scroll').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
