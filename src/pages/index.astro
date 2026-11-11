@@ -108,7 +108,7 @@ const cores = ['#2F5FB3', '#0E8A4A', '#B4531A', '#6D3FC4', '#0B7285', '#C2255C']
     <div class="w">
       <div class="cab surge"><div><span class="olho">Tire suas dúvidas</span><h2>Perguntas frequentes</h2></div></div>
       <div class="faq surge">
-        {faq.map((f) => <details><summary>{f.pergunta}<Icone nome="caret-down" peso="bold" /></summary><p>{f.resposta}</p></details>)}
+        {faq.map((f) => <details><summary>{f.pergunta}<Icone nome="caret-down" peso="bold" /></summary><div class="resp"><p>{f.resposta}</p></div></details>)}
       </div>
     </div>
   </section>

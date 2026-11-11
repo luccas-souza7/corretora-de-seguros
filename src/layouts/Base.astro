@@ -65,9 +65,16 @@ const ano = new Date().getFullYear();
       h.classList.add('js');
       try {
         var calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var jaViu = sessionStorage.getItem('abertura') === '1';
+        var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+        var recarregou = nav && nav.type === 'reload';
+        var jaViu = sessionStorage.getItem('abertura') === '1' && !recarregou;
         var comAncora = location.hash.length > 1;
-        if (inicio && !calmo && !jaViu && !comAncora) { h.classList.add('abrindo'); h.dataset.fase = '0'; }
+        if (inicio && !calmo && !jaViu && !comAncora) {
+          h.classList.add('abrindo'); h.dataset.fase = '0';
+          // ao atualizar, a página recomeça do topo para a abertura fazer sentido
+          if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+          scrollTo(0, 0);
+        }
       } catch (e) {}
     </script>
     <slot name="head" />
@@ -128,7 +135,7 @@ const ano = new Date().getFullYear();
           </div>
           <p class="aviso"><b>AVISO</b><span>{empresa.aviso}</span></p>
           <div class="fim">
-            <span>© {ano} {empresa.razaoSocial} · CNPJ {empresa.cnpj} · SUSEP {empresa.susep}</span>
+            <span>© <span id="ano">{ano}</span> {empresa.razaoSocial} · CNPJ {empresa.cnpj} · SUSEP {empresa.susep}</span>
             <span><a href="https://www.gov.br/susep/pt-br" target="_blank" rel="noopener">SUSEP</a> · <a href="https://veiculos.fipe.org.br/" target="_blank" rel="noopener">Tabela FIPE</a></span>
           </div>
         </div>

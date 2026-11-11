@@ -3,11 +3,23 @@ const html = document.documentElement;
 const topo = document.getElementById('topo');
 
 // cabeçalho sólido depois de rolar; barra de WhatsApp aparece depois da hero
+// a barra do topo some ao rolar para baixo e volta ao rolar para cima
+let ultimoY = scrollY;
+let agendado = false;
 const aoRolar = () => {
-  topo?.classList.toggle('rolou', scrollY > 30);
-  html.classList.toggle('passou', scrollY > innerHeight * 0.5);
+  agendado = false;
+  const y = Math.max(0, scrollY);
+  topo?.classList.toggle('rolou', y > 30);
+  html.classList.toggle('passou', y > innerHeight * 0.5);
+  const dif = y - ultimoY;
+  if (html.classList.contains('menu-aberto') || y < 120) topo?.classList.remove('esconde');
+  else if (dif > 6) topo?.classList.add('esconde');
+  else if (dif < -6) topo?.classList.remove('esconde');
+  if (Math.abs(dif) > 6 || y < 120) ultimoY = y;
 };
-addEventListener('scroll', aoRolar, { passive: true });
+addEventListener('scroll', () => { if (!agendado) { agendado = true; requestAnimationFrame(aoRolar); } }, { passive: true });
+// ao focar um link do cabeçalho com o teclado, ele volta
+topo?.addEventListener('focusin', () => topo.classList.remove('esconde'));
 aoRolar();
 
 // menu do celular
@@ -53,3 +65,59 @@ if ('IntersectionObserver' in window && surgem.length) {
 } else {
   surgem.forEach((el) => el.classList.add('visto'));
 }
+
+// perguntas frequentes: só uma aberta por vez, com animação
+const calmo = matchMedia('(prefers-reduced-motion: reduce)');
+const animarDetalhe = (d, abrir) => {
+  d._anim?.cancel();
+  d.classList.toggle('fechando', !abrir);
+  if (calmo.matches) { d.open = abrir; d.classList.remove('fechando'); return; }
+  const inicio = d.offsetHeight;
+  d.open = true;
+  const fim = abrir ? d.offsetHeight : d.querySelector('summary').offsetHeight + 2;
+  d.style.overflow = 'hidden';
+  const anim = d.animate({ height: [`${inicio}px`, `${fim}px`] }, { duration: 380, easing: 'cubic-bezier(.2, .7, .2, 1)' });
+  d._anim = anim;
+  anim.onfinish = () => {
+    d._anim = null;
+    d.style.overflow = '';
+    if (!abrir) { d.open = false; d.classList.remove('fechando'); }
+  };
+};
+document.querySelectorAll('.faq').forEach((lista) => {
+  const itens = [...lista.querySelectorAll('details')];
+  itens.forEach((d) => {
+    d.querySelector('summary').addEventListener('click', (e) => {
+      e.preventDefault();
+      const abrir = !d.open || d.classList.contains('fechando');
+      if (abrir) itens.forEach((o) => { if (o !== d && o.open && !o.classList.contains('fechando')) animarDetalhe(o, false); });
+      animarDetalhe(d, abrir);
+    });
+  });
+});
+
+// números que contam do zero quando aparecem (ex.: "500+", "15", "48h")
+const contar = (el) => {
+  const m = el.textContent.match(/^(\D*)([\d.]+)(.*)$/);
+  if (!m || calmo.matches) return;
+  const alvo = Number(m[2].replace(/\./g, ''));
+  const t0 = performance.now();
+  const passo = (t) => {
+    const p = Math.min(1, (t - t0) / 1400);
+    const v = Math.round(alvo * (1 - Math.pow(1 - p, 3)));
+    el.textContent = `${m[1]}${v.toLocaleString('pt-BR')}${m[3]}`;
+    if (p < 1) requestAnimationFrame(passo);
+  };
+  requestAnimationFrame(passo);
+};
+const contadores = document.querySelectorAll('[data-conta]');
+if ('IntersectionObserver' in window && contadores.length) {
+  const olhoNum = new IntersectionObserver((itens) => {
+    itens.forEach((i) => { if (i.isIntersecting) { contar(i.target); olhoNum.unobserve(i.target); } });
+  }, { threshold: 0.6 });
+  contadores.forEach((el) => olhoNum.observe(el));
+}
+
+// ano do rodapé sempre atual
+const ano = document.getElementById('ano');
+if (ano) ano.textContent = String(new Date().getFullYear());

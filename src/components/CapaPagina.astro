@@ -5,12 +5,12 @@ const { olho, titulo, texto, migalhas = [] } = Astro.props;
 ---
 <div class="capa-pagina">
   <div class="w">
-    <nav class="migalhas" aria-label="Você está em">
+    <nav class="migalhas entra" aria-label="Você está em">
       <a href={url('')}>Início</a>{migalhas.map((m) => <> / {m.href ? <a href={m.href}>{m.rotulo}</a> : <span>{m.rotulo}</span>}</>)}
     </nav>
-    {olho && <span class="olho" style="margin-top:14px">{olho}</span>}
-    <h1>{titulo}</h1>
-    {texto && <p>{texto}</p>}
+    {olho && <span class="olho entra" style="margin-top:14px;--i:1">{olho}</span>}
+    <h1 class="entra" style="--i:2">{titulo}</h1>
+    {texto && <p class="entra" style="--i:3">{texto}</p>}
     <slot />
   </div>
 </div>
