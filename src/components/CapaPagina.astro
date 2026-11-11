@@ -1,0 +1,16 @@
+---
+import { url } from '../lib/site';
+interface Props { olho?: string; titulo: string; texto?: string; migalhas?: { rotulo: string; href?: string }[] }
+const { olho, titulo, texto, migalhas = [] } = Astro.props;
+---
+<div class="capa-pagina">
+  <div class="w">
+    <nav class="migalhas" aria-label="Você está em">
+      <a href={url('')}>Início</a>{migalhas.map((m) => <> / {m.href ? <a href={m.href}>{m.rotulo}</a> : <span>{m.rotulo}</span>}</>)}
+    </nav>
+    {olho && <span class="olho" style="margin-top:14px">{olho}</span>}
+    <h1>{titulo}</h1>
+    {texto && <p>{texto}</p>}
+    <slot />
+  </div>
+</div>

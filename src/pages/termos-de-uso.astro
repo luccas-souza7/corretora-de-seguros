@@ -1,0 +1,37 @@
+---
+import Legal from '../components/Legal.astro';
+import { site, url } from '../lib/site';
+const { empresa, contato } = site;
+---
+<Legal titulo="Termos de Uso" descricao="Condições de uso do site da LS Corretora de Seguros. Documento-modelo." atualizado="10 de novembro de 2026">
+  <h2>1. Aceitação</h2>
+  <p>Ao navegar neste site, você concorda com estes Termos de Uso e com a <a href={url('politica-de-privacidade/')}>Política de Privacidade</a>. Se não concordar, pedimos que não utilize o site.</p>
+
+  <h2>2. O que este site oferece</h2>
+  <p>O site apresenta os serviços de {empresa.razaoSocial}, corretora de seguros, e permite solicitar cotações e contato. As informações têm caráter geral e não substituem a análise individual feita por um corretor.</p>
+
+  <h2>3. Cotações e contratação</h2>
+  <ul>
+    <li>A cotação é gratuita e não obriga a contratação.</li>
+    <li>Preços, coberturas e condições são definidos pelas seguradoras e podem mudar sem aviso até a emissão da proposta.</li>
+    <li>O seguro só passa a valer após a aceitação da proposta pela seguradora, nos termos da apólice.</li>
+  </ul>
+
+  <h2>4. Responsabilidades do usuário</h2>
+  <p>Você se compromete a fornecer informações verdadeiras e atualizadas. Dados incorretos podem alterar o preço e, em caso de sinistro, levar à recusa da indenização pela seguradora.</p>
+
+  <h2>5. Conteúdo do blog</h2>
+  <p>Os artigos têm finalidade informativa. Antes de tomar decisões, consulte as condições gerais do seu seguro e fale com um corretor.</p>
+
+  <h2>6. Propriedade intelectual</h2>
+  <p>Textos, layout e código deste site pertencem ao seu autor. As marcas e os logotipos das seguradoras pertencem aos respectivos titulares e são exibidos apenas para identificar as empresas.</p>
+
+  <h2>7. Links e serviços de terceiros</h2>
+  <p>O site contém links para o WhatsApp e para sites de terceiros, que têm termos e políticas próprios. Não nos responsabilizamos pelo conteúdo ou pelas práticas desses serviços.</p>
+
+  <h2>8. Alterações e contato</h2>
+  <p>Estes termos podem ser atualizados a qualquer momento; a versão vigente estará nesta página. Dúvidas: <a href={`mailto:${contato.email}`}>{contato.email}</a>.</p>
+
+  <h2>9. Foro</h2>
+  <p>Fica eleito o foro da comarca de São Paulo, SP, para resolver questões relativas a estes termos, salvo disposição legal em contrário.</p>
+</Legal>

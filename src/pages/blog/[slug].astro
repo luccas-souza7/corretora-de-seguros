@@ -1,0 +1,44 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import CapaPagina from '../../components/CapaPagina.astro';
+import CartaoPost from '../../components/CartaoPost.astro';
+import Icone from '../../components/Icone.astro';
+import { url, whatsapp, dataExtensa, minutosDeLeitura, ICONE_CATEGORIA } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', (p) => !p.data.rascunho);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const d = post.data;
+const outros = (await getCollection('blog', (p) => !p.data.rascunho && p.id !== post.id)).sort((a, b) => +b.data.data - +a.data.data).slice(0, 3);
+---
+<Base titulo={d.titulo} descricao={d.resumo} og={post.id} tipo="article" atual="blog">
+  <meta slot="head" property="article:published_time" content={d.data.toISOString()} />
+  <CapaPagina olho={d.categoria} titulo={d.titulo} texto={d.resumo} migalhas={[{ rotulo: 'Blog', href: url('blog/') }, { rotulo: d.categoria }]}>
+    <p class="meta" style="margin-top:16px"><time datetime={d.data.toISOString().slice(0, 10)}>{dataExtensa(d.data)}</time> · {minutosDeLeitura(post.body)} min de leitura · por Equipe LS</p>
+  </CapaPagina>
+  <div class="w">
+    <div class="capa capa-post">
+      <Icone nome={ICONE_CATEGORIA[d.categoria] ?? 'article'} peso="light" />
+      {d.capa && <img src={url(`blog/${d.capa}`)} alt="" width="1600" height="900" />}
+    </div>
+    <div class="artigo">
+      <article class="prosa"><Content /></article>
+      <aside class="lateral">
+        <h2>Quer isso aplicado ao seu caso?</h2>
+        <p>Comparamos as principais seguradoras e explicamos cada opção, sem compromisso.</p>
+        <a class="bt zap" href={whatsapp(`Olá! Li o artigo "${d.titulo}" e gostaria de uma cotação.`)} target="_blank" rel="noopener"><Icone nome="whatsapp-logo" />Chamar no WhatsApp</a>
+        <a class="bt fio" href={`${url('')}#contato`}>Pedir cotação gratuita</a>
+      </aside>
+    </div>
+  </div>
+  <section class="s">
+    <div class="w">
+      <div class="cab"><h2>Continue lendo</h2><a class="link" href={url('blog/')}>Ver todos os artigos <Icone nome="arrow-right" peso="bold" /></a></div>
+      <div class="grade-posts">{outros.map((p) => <CartaoPost post={p} />)}</div>
+    </div>
+  </section>
+</Base>

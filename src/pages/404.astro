@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../lib/site';
+---
+<Base titulo="Página não encontrada">
+  <div class="erro404">
+    <b>404</b>
+    <h1 style="font-size:30px">Não encontramos esta página</h1>
+    <p>O endereço pode ter mudado. Volte ao início ou veja os artigos do blog.</p>
+    <div class="cta"><a class="bt" href={url('')}>Ir para o início</a><a class="bt fio" href={url('blog/')}>Ver o blog</a></div>
+  </div>
+</Base>

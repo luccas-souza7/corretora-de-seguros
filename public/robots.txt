@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luccas-souza7.github.io/corretora-de-seguros/sitemap-index.xml

@@ -1,0 +1,13 @@
+---
+// Ícone da biblioteca Phosphor, embutido como SVG para herdar a cor do texto.
+import fs from 'node:fs';
+import path from 'node:path';
+
+interface Props { nome: string; peso?: 'regular' | 'light' | 'bold' | 'fill'; class?: string }
+const { nome, peso = 'regular', class: classe = '' } = Astro.props;
+const arquivo = peso === 'regular' ? `${nome}.svg` : `${nome}-${peso}.svg`;
+const svg = fs
+  .readFileSync(path.join(process.cwd(), 'node_modules/@phosphor-icons/core/assets', peso, arquivo), 'utf8')
+  .replace('<svg ', '<svg aria-hidden="true" focusable="false" ');
+---
+<span class:list={['ph', classe]} set:html={svg} />

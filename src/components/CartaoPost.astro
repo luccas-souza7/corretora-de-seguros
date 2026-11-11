@@ -1,0 +1,19 @@
+---
+import Icone from './Icone.astro';
+import { url, dataExtensa, minutosDeLeitura, ICONE_CATEGORIA } from '../lib/site';
+interface Props { post: any; nivel?: 'h2' | 'h3' }
+const { post, nivel: T = 'h3' } = Astro.props;
+const d = post.data;
+---
+<article class="post">
+  <div class="capa">
+    <Icone nome={ICONE_CATEGORIA[d.categoria] ?? 'article'} peso="light" />
+    {d.capa && <img src={url(`blog/${d.capa}`)} alt="" loading="lazy" width="1600" height="900" />}
+  </div>
+  <div class="c">
+    <span class="meta"><b>{d.categoria}</b> · {dataExtensa(d.data)} · {minutosDeLeitura(post.body)} min de leitura</span>
+    <T><a href={url(`blog/${post.id}/`)}>{d.titulo}</a></T>
+    <p>{d.resumo}</p>
+    <span class="link" aria-hidden="true">Ler artigo <Icone nome="arrow-right" peso="bold" /></span>
+  </div>
+</article>

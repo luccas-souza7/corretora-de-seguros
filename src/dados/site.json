@@ -1,0 +1,113 @@
+{
+  "empresa": {
+    "nome": "LS Corretora de Seguros",
+    "nomeCurto": "LS Corretora",
+    "razaoSocial": "LS Corretora de Seguros Ltda.",
+    "cnpj": "00.000.000/0001-00",
+    "susep": "000000000",
+    "desde": 2011,
+    "slogan": "Protegendo sonhos com cuidado humano desde 2011.",
+    "descricao": "Corretora de seguros em São Paulo. Atendimento humano do orçamento ao sinistro, com as principais seguradoras do país. Cotação gratuita.",
+    "aviso": "Projeto demonstrativo de portfólio. Empresa, endereço, avaliações e depoimentos são fictícios."
+  },
+  "contato": {
+    "whatsapp": "5511932018859",
+    "whatsappExibicao": "(11) 93201-8859",
+    "telefone": "+5511932018859",
+    "telefoneExibicao": "(11) 93201-8859",
+    "email": "luccasnsouza1@gmail.com",
+    "horario": "Segunda a sexta, das 9h às 18h",
+    "horarioCurto": "Seg a sex, 9h às 18h",
+    "linkedin": "https://www.linkedin.com/in/luccas-souza7/"
+  },
+  "endereco": {
+    "rua": "Rua Aurora do Norte, 128",
+    "bairro": "Vila Guilherme · São Paulo, SP",
+    "cep": "02000-000",
+    "longitude": -46.6241,
+    "latitude": -23.5065
+  },
+  "hero": {
+    "selo": "Corretora de seguros · desde 2011",
+    "titulo": "Seguros que protegem o que",
+    "destaque": "realmente importa",
+    "texto": "Atendimento humano do orçamento ao sinistro. Mais de 500 famílias protegidas em São Paulo.",
+    "video": "casa",
+    "fatos": [
+      { "valor": "15 anos", "rotulo": "de experiência" },
+      { "valor": "500+", "rotulo": "clientes protegidos" },
+      { "valor": "10+", "rotulo": "seguradoras" }
+    ]
+  },
+  "numeros": [
+    { "valor": "15", "rotulo": "anos de experiência" },
+    { "valor": "500+", "rotulo": "clientes protegidos" },
+    { "valor": "10+", "rotulo": "seguradoras parceiras" },
+    { "valor": "48h", "rotulo": "para resolver um sinistro" }
+  ],
+  "ramos": [
+    { "id": "auto", "titulo": "Seguro Auto", "texto": "Cobertura completa, assistência 24h e carro reserva.", "icone": "car-profile", "tag": "Mais pedido" },
+    { "id": "celular", "titulo": "Seguro Celular", "texto": "Roubo, furto, quebra acidental e assistência imediata.", "icone": "device-mobile", "tag": "Cotação em minutos" },
+    { "id": "residencial", "titulo": "Seguro Residencial", "texto": "Proteção contra incêndio, roubo, vendaval e assistência 24h.", "icone": "house-line" },
+    { "id": "vida", "titulo": "Seguro de Vida", "texto": "Tranquilidade financeira para quem você ama.", "icone": "heartbeat" },
+    { "id": "saude", "titulo": "Plano de Saúde", "texto": "Rede credenciada ampla e condições especiais.", "icone": "first-aid-kit" },
+    { "id": "consorcio", "titulo": "Consórcio", "texto": "Planeje a compra do seu carro ou imóvel sem juros.", "icone": "key" },
+    { "id": "empresarial", "titulo": "Seguro Empresarial", "texto": "Proteja seu patrimônio, estoque e equipe.", "icone": "buildings" },
+    { "id": "frota", "titulo": "Seguro Frota", "texto": "Gestão simplificada para empresas com múltiplos veículos.", "icone": "truck" }
+  ],
+  "diferenciais": [
+    { "titulo": "Atendimento 100% humano", "texto": "Nada de robôs. Nossa equipe real te acompanha do primeiro contato ao fechamento da apólice e ainda no sinistro.", "icone": "handshake" },
+    { "titulo": "Melhor custo-benefício", "texto": "Comparamos diversas seguradoras para você ter a proteção ideal com o menor preço possível. Sem pegadinhas.", "icone": "scales" },
+    { "titulo": "Agilidade no sinistro", "texto": "Quando o imprevisto acontece, nossa equipe age rápido. Sinistros resolvidos em até 48h com acompanhamento total.", "icone": "lightning" },
+    { "titulo": "15 anos de experiência", "texto": "Mais de uma década cuidando de famílias e empresas em São Paulo. Credibilidade que se constrói com resultado.", "icone": "medal" }
+  ],
+  "seguradoras": [
+    { "nome": "Porto Seguro", "arquivo": "portoseguro.svg" },
+    { "nome": "Allianz", "arquivo": "allianz.svg" },
+    { "nome": "Zurich", "arquivo": "zurich.svg" },
+    { "nome": "Bradesco Seguros", "arquivo": "bradescoseguros.svg" },
+    { "nome": "Mapfre", "arquivo": "mapfre.svg" },
+    { "nome": "Tokio Marine", "arquivo": "tokiomarine.svg" },
+    { "nome": "Azul Seguros", "arquivo": "azulseguros.svg" },
+    { "nome": "Ituran", "arquivo": "ituran.png" },
+    { "nome": "Yelum", "arquivo": "yelum.svg" },
+    { "nome": "Mitsui Sumitomo", "arquivo": "mitsuisumitomo.svg" }
+  ],
+  "google": { "nota": "5,0", "total": 52, "link": "" },
+  "avaliacoes": [
+    { "nome": "Helena Duarte", "quando": "há 2 semanas", "texto": "Bati o carro numa sexta à noite. No sábado de manhã já tinha guincho, carro reserva e alguém me explicando os próximos passos." },
+    { "nome": "Mariana Costa", "quando": "há 1 mês", "texto": "Atendimento impecável! Sinistro resolvido em menos de 48h. Equipe super atenciosa do início ao fim." },
+    { "nome": "Roberto Silva", "quando": "há 1 mês", "texto": "Gerencio uma frota de 12 veículos e nunca tive um problema que a LS não resolvesse rapidamente." },
+    { "nome": "Carlos Eduardo", "quando": "há 2 meses", "texto": "Melhor corretora de Vila Guilherme! Ágeis, simpáticos e muito honestos. Não troco por nada." },
+    { "nome": "Ivone Tanaka", "quando": "há 3 meses", "texto": "Renovaram a apólice da padaria sem eu pedir e ainda acharam uma cobertura melhor pelo mesmo valor." },
+    { "nome": "Gustavo Henrique", "quando": "há 4 meses", "texto": "Tive o celular roubado e o reembolso foi rápido. Nunca esperava tão pouca burocracia!" },
+    { "nome": "Ana Paula Souza", "quando": "há 5 meses", "texto": "Explicaram tudo com muita paciência. Me senti segura na escolha do plano ideal para minha família." },
+    { "nome": "Fernanda Lima", "quando": "há 6 meses", "texto": "Atendimento humanizado de verdade. Foram além do esperado quando precisei acionar o seguro." }
+  ],
+  "faq": [
+    { "pergunta": "A LS é parceira oficial da Porto Seguro?", "resposta": "Sim. Somos corretora independente com parceria oficial Porto Seguro. Você contrata produtos Porto com o atendimento humano e personalizado da LS." },
+    { "pergunta": "Preciso ir ao escritório para contratar?", "resposta": "Não. Todo o processo pode ser feito online, pelo WhatsApp ou por e-mail. Se preferir atendimento presencial, nosso escritório em Vila Guilherme está de portas abertas." },
+    { "pergunta": "Como funciona o atendimento em sinistro?", "resposta": "Nossa equipe acompanha todo o processo do início ao fim. Você não fica perdido com a seguradora: orientamos cada etapa, da abertura à resolução. Sinistros resolvidos em média em 48h." },
+    { "pergunta": "Como funciona a cotação gratuita?", "resposta": "Chame no WhatsApp ou preencha o formulário de contato. Nossa equipe responde em minutos com as melhores opções do mercado comparadas para o seu perfil." },
+    { "pergunta": "Quais tipos de seguro a LS oferece?", "resposta": "Auto, residencial, vida, saúde, empresarial, frota, celular e consórcio. Trabalhamos com mais de 10 seguradoras parceiras para garantir a melhor cobertura e preço para você." },
+    { "pergunta": "Posso contratar plano de saúde pela LS?", "resposta": "Sim. Trabalhamos com diversas operadoras de saúde. Nossa equipe analisa seu perfil e apresenta as melhores opções com a rede credenciada ideal para você e sua família." },
+    { "pergunta": "Qual o horário de atendimento?", "resposta": "Segunda a sexta, das 9h às 18h. Pode chamar no WhatsApp a qualquer hora: respondemos assim que possível, mesmo fora do horário comercial." },
+    { "pergunta": "A LS atende empresas e frotas?", "resposta": "Sim. Temos soluções completas para pessoa jurídica: seguro empresarial, frota, responsabilidade civil e mais. Entre em contato para uma análise personalizada do seu negócio." }
+  ],
+  "historia": {
+    "paragrafos": [
+      "A LS nasceu com a missão de transformar a experiência de contratar seguros. Acreditamos que proteção vai além de uma apólice: é relacionamento, confiança e cuidado genuíno com cada cliente.",
+      "Com escritório em Vila Guilherme, São Paulo, atendemos clientes de toda a região metropolitana e também de forma 100% online para todo o Brasil.",
+      "Nossa trajetória é marcada por transparência, dedicação e pela busca constante das melhores soluções do mercado para cada perfil de cliente."
+    ],
+    "linhaDoTempo": [
+      { "ano": "2011", "titulo": "Fundação da LS Corretora", "texto": "Nascemos em Vila Guilherme com o compromisso de oferecer seguros com atendimento humano e personalizado." },
+      { "ano": "2014", "titulo": "100 famílias protegidas", "texto": "Atingimos a marca de 100 clientes e ampliamos nossa carteira de seguradoras parceiras." },
+      { "ano": "2018", "titulo": "Expansão digital", "texto": "Passamos a atender 100% online clientes de todo o Brasil, mantendo o mesmo cuidado e proximidade." },
+      { "ano": "2024", "titulo": "500+ clientes", "texto": "Mais de 500 famílias protegidas. Nossa maior conquista é a confiança dos clientes." }
+    ],
+    "missao": "Oferecer soluções em seguros com excelência, transparência e atendimento humano, garantindo tranquilidade e segurança para nossos clientes em todas as fases da vida.",
+    "visao": "Ser reconhecida como a corretora mais confiável de São Paulo, referência em atendimento personalizado, inovação e parcerias sólidas com as principais seguradoras do país.",
+    "valores": ["Ética e transparência", "Compromisso com o cliente", "Excelência no atendimento", "Inovação constante", "Responsabilidade social"]
+  }
+}

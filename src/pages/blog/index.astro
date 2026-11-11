@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import CapaPagina from '../../components/CapaPagina.astro';
+import CartaoPost from '../../components/CartaoPost.astro';
+
+const posts = (await getCollection('blog', (p) => !p.data.rascunho)).sort((a, b) => +b.data.data - +a.data.data);
+---
+<Base titulo="Blog" descricao="Artigos da LS Corretora sobre seguro auto, residencial, vida, consórcio e sinistro, explicados sem letra miúda." atual="blog">
+  <CapaPagina olho="Blog" titulo="Seguro explicado sem letra miúda" texto="Dicas práticas para contratar melhor, gastar menos e saber o que fazer quando o imprevisto acontece." migalhas={[{ rotulo: 'Blog' }]} />
+  <section class="s" style="padding-top:36px">
+    <div class="w">
+      <div class="grade-posts">{posts.map((p) => <CartaoPost post={p} nivel="h2" />)}</div>
+    </div>
+  </section>
+</Base>

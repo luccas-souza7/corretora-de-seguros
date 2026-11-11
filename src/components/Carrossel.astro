@@ -1,0 +1,14 @@
+---
+// Faixa que desliza com o dedo; no desktop ganha setas e barra de progresso.
+import Icone from './Icone.astro';
+interface Props { tres?: boolean; rotulo: string }
+const { tres = false, rotulo } = Astro.props;
+---
+<div data-carrossel>
+  <ul class:list={['trilho', { tres }]} aria-label={rotulo} tabindex="0"><slot /></ul>
+  <div class="passos">
+    <div class="barra" aria-hidden="true"><i></i></div>
+    <button class="seta" type="button" data-dir="-1" aria-label="Anterior"><Icone nome="caret-left" peso="bold" /></button>
+    <button class="seta" type="button" data-dir="1" aria-label="Próximo"><Icone nome="caret-right" peso="bold" /></button>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+---
+// Moldura das páginas legais (documentos-modelo).
+import Base from '../layouts/Base.astro';
+import CapaPagina from './CapaPagina.astro';
+import { site } from '../lib/site';
+interface Props { titulo: string; descricao: string; atualizado: string }
+const { titulo, descricao, atualizado } = Astro.props;
+---
+<Base titulo={titulo} descricao={descricao}>
+  <CapaPagina olho="Documento-modelo" titulo={titulo} texto={`Última atualização: ${atualizado}`} migalhas={[{ rotulo: titulo }]} />
+  <section class="s" style="padding-top:36px">
+    <div class="w">
+      <div class="prosa">
+        <p class="aviso claro"><b>MODELO</b><span>Texto-modelo para fins de demonstração, baseado na LGPD (Lei 13.709/2018). {site.empresa.aviso}</span></p>
+        <slot />
+      </div>
+    </div>
+  </section>
+</Base>

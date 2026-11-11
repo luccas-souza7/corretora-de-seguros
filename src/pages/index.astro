@@ -1,0 +1,124 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Abertura from '../components/Abertura.astro';
+import Hero from '../components/Hero.astro';
+import Carrossel from '../components/Carrossel.astro';
+import CartaoPost from '../components/CartaoPost.astro';
+import Contato from '../components/Contato.astro';
+import Google from '../components/Google.astro';
+import Icone from '../components/Icone.astro';
+import { site, url } from '../lib/site';
+
+const { ramos, diferenciais, numeros, seguradoras, avaliacoes, google, faq, empresa } = site;
+const posts = (await getCollection('blog', (p) => !p.data.rascunho)).sort((a, b) => +b.data.data - +a.data.data).slice(0, 3);
+const metade = Math.ceil(seguradoras.length / 2);
+const fila1 = seguradoras.slice(0, metade);
+const fila2 = seguradoras.slice(metade);
+const cores = ['#2F5FB3', '#0E8A4A', '#B4531A', '#6D3FC4', '#0B7285', '#C2255C'];
+---
+<Base inicio>
+  <Abertura slot="abertura" />
+  <Hero />
+
+  <section class="s" id="ramos">
+    <div class="w">
+      <div class="cab surge"><div><span class="olho">Seguros</span><h2>Escolha o que você quer proteger</h2><p>Comparamos as principais seguradoras e uma pessoa de verdade acompanha você.</p></div></div>
+      <div class="surge">
+        <Carrossel rotulo="Tipos de seguro">
+          {ramos.map((r) => (
+            <li class="ramo">
+              <Icone nome={r.icone} peso="light" />
+              {r.tag && <span class="tag">{r.tag}</span>}
+              <h3>{r.titulo}</h3>
+              <p>{r.texto}</p>
+              <a class="bt fio" href="#contato" data-ramo={r.titulo}>Cotar agora<span class="so-leitor"> {r.titulo}</span></a>
+            </li>
+          ))}
+        </Carrossel>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="porque">
+    <div class="w">
+      <div class="cab surge"><div><span class="olho">Por que a LS</span><h2>Por que centenas de famílias escolhem a LS</h2></div><a class="link" href={url('sobre/')}>Conheça nossa história <Icone nome="arrow-right" peso="bold" /></a></div>
+      <div class="difs surge">
+        {diferenciais.map((d) => <div class="dif"><Icone nome={d.icone} peso="light" /><h3>{d.titulo}</h3><p>{d.texto}</p></div>)}
+      </div>
+      <div class="faixa surge">
+        <div class="t"><small>Quem somos</small><h3>Fundados em {empresa.desde} com um propósito claro</h3></div>
+        {numeros.map((n) => <div><b>{n.valor}</b><span>{n.rotulo}</span></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="parceiras">
+    <div class="w">
+      <div class="cab surge"><div><span class="olho">Seguradoras parceiras</span><h2>Trabalhamos com quem você já conhece e confia</h2></div></div>
+      <div class="esteira surge">
+        {[fila1, fila2].map((fila, n) => (
+          <ul class="fila">
+            {[...fila, ...fila, ...fila, ...fila].map((s, i) => (
+              <li class="logo" aria-hidden={i >= fila.length ? 'true' : undefined}><img src={url(`seguradoras/${s.arquivo}`)} alt={s.nome} loading="lazy" /></li>
+            ))}
+          </ul>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="avaliacoes">
+    <div class="w">
+      <div class="cab surge"><div><span class="olho">Avaliações</span><h2>O que nossos clientes dizem</h2></div></div>
+      <div class="g-topo surge">
+        <Google />
+        <div>
+          <strong>Avaliações no Google</strong>
+          <div class="g-nota"><b>{google.nota}</b><span class="estrelas" role="img" aria-label="5 de 5 estrelas">{[1, 2, 3, 4, 5].map(() => <Icone nome="star" peso="fill" />)}</span><span>{google.total} avaliações</span></div>
+        </div>
+        {google.link && google.link !== '#' && <a class="bt fio" href={google.link} target="_blank" rel="noopener">Ver no Google <Icone nome="arrow-up-right" peso="bold" /></a>}
+      </div>
+      <div class="surge">
+        <Carrossel tres rotulo="Avaliações de clientes">
+          {avaliacoes.map((a, i) => (
+            <li class="av">
+              <header><b style={`background:${cores[i % cores.length]}`} aria-hidden="true">{a.nome[0]}</b><div><strong>{a.nome}</strong>{a.quando}</div><Google /></header>
+              <span class="estrelas" role="img" aria-label="5 de 5 estrelas">{[1, 2, 3, 4, 5].map(() => <Icone nome="star" peso="fill" />)}</span>
+              <p>{a.texto}</p>
+            </li>
+          ))}
+        </Carrossel>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="blog">
+    <div class="w">
+      <div class="cab surge"><div><span class="olho">Blog</span><h2>Seguro explicado sem letra miúda</h2></div><a class="link" href={url('blog/')}>Ver todos os artigos <Icone nome="arrow-right" peso="bold" /></a></div>
+      <div class="surge">
+        <Carrossel tres rotulo="Últimos artigos">
+          {posts.map((p) => <li><CartaoPost post={p} /></li>)}
+        </Carrossel>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="faq">
+    <div class="w">
+      <div class="cab surge"><div><span class="olho">Tire suas dúvidas</span><h2>Perguntas frequentes</h2></div></div>
+      <div class="faq surge">
+        {faq.map((f) => <details><summary>{f.pergunta}<Icone nome="caret-down" peso="bold" /></summary><p>{f.resposta}</p></details>)}
+      </div>
+    </div>
+  </section>
+
+  <Contato />
+</Base>
+<script>
+  // "Cotar agora" já deixa o tipo de seguro escolhido no formulário
+  document.querySelectorAll('[data-ramo]').forEach((a) => a.addEventListener('click', () => {
+    const tipo = document.querySelector('#form-cotacao select');
+    if (tipo) tipo.value = a.dataset.ramo;
+  }));
+</script>

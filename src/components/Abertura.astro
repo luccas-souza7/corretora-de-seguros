@@ -1,0 +1,17 @@
+---
+// Abertura da página inicial: mapa com o pino e o endereço. Toca uma vez por sessão.
+import { site, url } from '../lib/site';
+const { empresa, endereco } = site;
+---
+<div id="abertura" aria-hidden="true">
+  <img class="ab-img" src={url('midia/mapa.webp')} alt="" width="2200" height="1300" />
+  <div id="ab-mapa" data-lng={endereco.longitude} data-lat={endereco.latitude}></div>
+  <div class="ab-topo"><img src={url('logo-ls.png')} alt="" width="369" height="369" /></div>
+  <button class="ab-pular" type="button" tabindex="-1">Pular</button>
+  <svg class="ab-pino" viewBox="0 0 46 60" width="46" height="60"><path d="M23 59S3 37.5 3 22a20 20 0 0 1 40 0c0 15.5-20 37-20 37z" fill="#2F5FB3"/><circle cx="23" cy="22" r="8" fill="#fff"/></svg>
+  <div class="ab-cartao"><small>{empresa.nomeCurto} · escritório</small><strong>{endereco.rua}</strong>{endereco.bairro}</div>
+  <div class="ab-pe"><i></i>Chegando à {empresa.nomeCurto}</div>
+</div>
+<script>
+  import '../scripts/abertura.js';
+</script>

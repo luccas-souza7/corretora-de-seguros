@@ -1,0 +1,167 @@
+---
+import '@fontsource-variable/onest';
+import '@fontsource-variable/open-sans';
+import '../styles/global.css';
+import Icone from '../components/Icone.astro';
+import { site, url, absoluta, whatsapp } from '../lib/site';
+
+interface Props {
+  titulo?: string;
+  descricao?: string;
+  /** nome da imagem de compartilhamento em /og/ (sem extensão) */
+  og?: string;
+  tipo?: 'website' | 'article';
+  /** a página inicial tem cabeçalho transparente sobre o vídeo e a abertura com mapa */
+  inicio?: boolean;
+  atual?: string;
+}
+const { titulo, descricao = site.empresa.descricao, og = 'inicio', tipo = 'website', inicio = false, atual = '' } = Astro.props;
+const { empresa, contato, endereco } = site;
+const tituloCompleto = titulo ? `${titulo} | ${empresa.nome}` : `${empresa.nome} | Proteção com atendimento humano`;
+const canonica = new URL(Astro.url.pathname, Astro.site).href;
+const imagem = absoluta(`og/${og}.jpg`);
+const ancora = (id: string) => (inicio ? `#${id}` : `${url('')}#${id}`);
+const menu = [
+  { rotulo: 'Seguros', href: ancora('ramos') },
+  { rotulo: 'Por que a LS', href: ancora('porque') },
+  { rotulo: 'Seguradoras', href: ancora('parceiras') },
+  { rotulo: 'Avaliações', href: ancora('avaliacoes') },
+  { rotulo: 'Blog', href: url('blog/'), id: 'blog' },
+  { rotulo: 'Contato', href: ancora('contato') },
+];
+const zap = whatsapp();
+const ano = new Date().getFullYear();
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descricao} />
+    <link rel="canonical" href={canonica} />
+    <meta name="theme-color" content="#0B1F44" />
+    <link rel="icon" type="image/png" href={url('favicon.png')} />
+    <link rel="apple-touch-icon" href={url('apple-touch-icon.png')} />
+    <link rel="sitemap" href={url('sitemap-index.xml')} />
+
+    <meta property="og:type" content={tipo} />
+    <meta property="og:site_name" content={empresa.nome} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content={tituloCompleto} />
+    <meta property="og:description" content={descricao} />
+    <meta property="og:url" content={canonica} />
+    <meta property="og:image" content={imagem} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={tituloCompleto} />
+    <meta name="twitter:description" content={descricao} />
+    <meta name="twitter:image" content={imagem} />
+
+    <script is:inline define:vars={{ inicio }}>
+      // Decide antes da primeira pintura se a abertura com mapa toca (uma vez por sessão).
+      var h = document.documentElement;
+      h.classList.add('js');
+      try {
+        var calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var jaViu = sessionStorage.getItem('abertura') === '1';
+        var comAncora = location.hash.length > 1;
+        if (inicio && !calmo && !jaViu && !comAncora) { h.classList.add('abrindo'); h.dataset.fase = '0'; }
+      } catch (e) {}
+    </script>
+    <slot name="head" />
+  </head>
+  <body class={inicio ? 'inicio' : 'interna'}>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <slot name="abertura" />
+
+    <div id="site">
+      <header class="topo" id="topo">
+        <div class="w">
+          <a class="marca" href={url('')} aria-label={`${empresa.nome}, página inicial`}>
+            <img src={url('logo-ls.png')} alt={empresa.nome} width="369" height="369" />
+          </a>
+          <nav aria-label="Principal">
+            {menu.map((m) => <a href={m.href} aria-current={m.id && m.id === atual ? 'page' : undefined}>{m.rotulo}</a>)}
+          </nav>
+          <div class="acoes">
+            <a class="bt fio" href={ancora('contato')}>Cotação gratuita</a>
+            <a class="bt zap" href={zap} target="_blank" rel="noopener"><Icone nome="whatsapp-logo" />WhatsApp</a>
+          </div>
+          <button class="menu-bt" id="abre-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="gaveta"><Icone nome="list" /></button>
+        </div>
+      </header>
+
+      <main id="conteudo"><slot /></main>
+
+      <footer>
+        <div class="w">
+          <div class="rod">
+            <div>
+              <img class="logo-rod" src={url('logo-ls.png')} alt={empresa.nome} width="369" height="369" loading="lazy" />
+              <p>{empresa.slogan}</p>
+            </div>
+            <div>
+              <h2>Seguros</h2>
+              <ul>{site.ramos.slice(0, 5).map((r) => <li><a href={ancora('ramos')}>{r.titulo}</a></li>)}</ul>
+            </div>
+            <div>
+              <h2>Institucional</h2>
+              <ul>
+                <li><a href={url('sobre/')}>Sobre nós</a></li>
+                <li><a href={url('blog/')}>Blog</a></li>
+                <li><a href={ancora('faq')}>Perguntas frequentes</a></li>
+                <li><a href={url('termos-de-uso/')}>Termos de Uso</a></li>
+                <li><a href={url('politica-de-privacidade/')}>Política de Privacidade</a></li>
+              </ul>
+            </div>
+            <div>
+              <h2>Atendimento</h2>
+              <ul>
+                <li><a href={zap} target="_blank" rel="noopener">WhatsApp {contato.whatsappExibicao}</a></li>
+                <li><a href={`mailto:${contato.email}`}>{contato.email}</a></li>
+                <li>{contato.horarioCurto}</li>
+                <li>{endereco.rua}</li>
+              </ul>
+            </div>
+          </div>
+          <p class="aviso"><b>AVISO</b><span>{empresa.aviso}</span></p>
+          <div class="fim">
+            <span>© {ano} {empresa.razaoSocial} · CNPJ {empresa.cnpj} · SUSEP {empresa.susep}</span>
+            <span><a href="https://www.gov.br/susep/pt-br" target="_blank" rel="noopener">SUSEP</a> · <a href="https://veiculos.fipe.org.br/" target="_blank" rel="noopener">Tabela FIPE</a></span>
+          </div>
+        </div>
+      </footer>
+
+      <a class="zap-flut" href={zap} target="_blank" rel="noopener"><Icone nome="whatsapp-logo" />Fale no WhatsApp</a>
+      <div class="barra-fixa">
+        <a class="bt zap" href={zap} target="_blank" rel="noopener"><Icone nome="whatsapp-logo" />WhatsApp</a>
+        <a class="bt" href={ancora('contato')}>Cotação grátis</a>
+      </div>
+
+      <div class="gaveta" id="gaveta" aria-label="Menu">
+        <div class="cima">
+          <img src={url('logo-ls.png')} alt={empresa.nome} width="369" height="369" loading="lazy" />
+          <button class="fecha" id="fecha-menu" type="button" aria-label="Fechar menu"><Icone nome="x" /></button>
+        </div>
+        <nav aria-label="Menu do celular">
+          {menu.map((m) => <a href={m.href}>{m.rotulo}<Icone nome="caret-right" peso="bold" /></a>)}
+          <a href={url('sobre/')}>Sobre nós<Icone nome="caret-right" peso="bold" /></a>
+        </nav>
+        <div class="atend">
+          <strong>Atendimento</strong>
+          WhatsApp {contato.whatsappExibicao}<br />{contato.horario}
+        </div>
+        <div class="bts">
+          <a class="bt zap" href={zap} target="_blank" rel="noopener"><Icone nome="whatsapp-logo" />Chamar no WhatsApp</a>
+          <a class="bt" href={ancora('contato')}>Pedir cotação gratuita</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      import '../scripts/site.js';
+    </script>
+  </body>
+</html>

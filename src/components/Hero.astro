@@ -1,0 +1,39 @@
+---
+import Icone from './Icone.astro';
+import { site, url, whatsapp } from '../lib/site';
+const { hero } = site;
+const v = url(`midia/${hero.video}`);
+---
+<section class="hero" id="hero">
+  <img class="poster" src={`${v}.jpg`} alt="" width="1280" height="720" fetchpriority="high" />
+  <video id="video-hero" muted loop playsinline autoplay preload="metadata" poster={`${v}.jpg`} aria-hidden="true">
+    <source src={`${v}.webm`} type="video/webm" />
+    <source src={`${v}.mp4`} type="video/mp4" />
+  </video>
+  <div class="hero-in">
+    <span class="selo sobe"><i></i>{hero.selo}</span>
+    <h1 class="sobe">{hero.titulo} <b>{hero.destaque}</b></h1>
+    <p class="sobe">{hero.texto}</p>
+    <div class="cta sobe">
+      <a class="bt br" href="#contato">Solicitar cotação grátis</a>
+      <a class="bt zap" href={whatsapp()} target="_blank" rel="noopener"><Icone nome="whatsapp-logo" />Chamar no WhatsApp</a>
+    </div>
+    <div class="fatos sobe">{hero.fatos.map((f) => <div><b>{f.valor}</b>{f.rotulo}</div>)}</div>
+  </div>
+  <button class="pausa" id="pausa-video" type="button" aria-label="Pausar vídeo de fundo" aria-pressed="false">
+    <Icone nome="pause" peso="fill" class="ic-pausar" /><Icone nome="play" peso="fill" class="ic-tocar" />
+  </button>
+  <a class="role" href="#ramos">Role para conhecer<Icone nome="caret-down" peso="bold" /></a>
+</section>
+<script>
+  const video = document.getElementById('video-hero');
+  const botao = document.getElementById('pausa-video');
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { video.pause(); botao.classList.add('parado'); botao.setAttribute('aria-pressed', 'true'); }
+  botao.addEventListener('click', () => {
+    const parar = !video.paused;
+    parar ? video.pause() : video.play();
+    botao.classList.toggle('parado', parar);
+    botao.setAttribute('aria-pressed', String(parar));
+    botao.setAttribute('aria-label', parar ? 'Retomar vídeo de fundo' : 'Pausar vídeo de fundo');
+  });
+</script>

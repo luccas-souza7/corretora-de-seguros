@@ -1,0 +1,38 @@
+---
+import Icone from './Icone.astro';
+import { site, url, whatsapp } from '../lib/site';
+const { contato, endereco, ramos } = site;
+---
+<section class="s" id="contato">
+  <div class="w">
+    <div class="cab surge"><div><span class="olho">Contato</span><h2>Vamos proteger o que importa para você?</h2><p>Respondemos em minutos. {contato.horario}.</p></div></div>
+    <div class="contato">
+      <form class="form surge" id="form-cotacao" data-whatsapp={contato.whatsapp} novalidate>
+        <h3>Peça sua cotação gratuita</h3>
+        <p>Preencha e continue a conversa com um corretor pelo WhatsApp.</p>
+        <label class="campo"><span>Nome completo</span><input name="nome" type="text" autocomplete="name" placeholder="Seu nome" required /></label>
+        <label class="campo"><span>WhatsApp ou telefone</span><input name="telefone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(11) 99999-9999" required /></label>
+        <label class="campo"><span>Tipo de seguro</span><select name="tipo">{ramos.map((r) => <option>{r.titulo}</option>)}</select></label>
+        <p class="erro" role="alert"></p>
+        <button class="bt" type="submit">Enviar pedido <Icone nome="paper-plane-tilt" /></button>
+        <p class="ou">ou, se preferir conversar agora</p>
+        <a class="bt zap" href={whatsapp()} target="_blank" rel="noopener"><Icone nome="whatsapp-logo" />Chamar no WhatsApp</a>
+      </form>
+      <div class="onde surge">
+        <div id="mapa-contato" data-lng={endereco.longitude} data-lat={endereco.latitude} style={`background-image:url(${url('midia/mapa.webp')})`} role="img" aria-label={`Mapa com a localização: ${endereco.rua}, ${endereco.bairro}`}>
+          <svg class="pino-mapa" viewBox="0 0 46 60" width="38" height="50" aria-hidden="true"><path d="M23 59S3 37.5 3 22a20 20 0 0 1 40 0c0 15.5-20 37-20 37z" fill="#2F5FB3"/><circle cx="23" cy="22" r="8" fill="#fff"/></svg>
+        </div>
+        <ul class="info">
+          <li><Icone nome="map-pin" /><div>{endereco.rua}<small>{endereco.bairro}</small></div></li>
+          <li><Icone nome="clock" /><div>Segunda a sexta<small>das 9h às 18h</small></div></li>
+          <li><Icone nome="whatsapp-logo" /><div><a href={whatsapp()} target="_blank" rel="noopener">{contato.whatsappExibicao}</a><small>WhatsApp</small></div></li>
+          <li><Icone nome="phone" /><div><a href={`tel:${contato.telefone}`}>{contato.telefoneExibicao}</a><small>Telefone</small></div></li>
+          <li><Icone nome="envelope-simple" /><div><a href={`mailto:${contato.email}`}>{contato.email}</a><small>E-mail</small></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  import '../scripts/contato.js';
+</script>
